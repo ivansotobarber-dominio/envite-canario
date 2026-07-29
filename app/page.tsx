@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./site-chrome";
-import { siteUrl } from "../lib/site";
+import { assetPath, siteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Envite Canario | App, cultura, torneos y comunidad",
@@ -96,7 +96,13 @@ export default function Home() {
       <SiteHeader />
 
       <main>
-        <section className="hero" aria-labelledby="hero-title">
+        <section
+          className="hero"
+          aria-labelledby="hero-title"
+          style={{
+            backgroundImage: `url("${assetPath("/images/envite-hero.png")}")`,
+          }}
+        >
           <div className="hero-shade" aria-hidden="true" />
           <div className="hero-inner">
             <p className="status-kicker">Prelanzamiento público</p>
@@ -160,7 +166,7 @@ export default function Home() {
             </div>
             <figure className="product-figure">
               <Image
-                src="/images/envite-table.png"
+                src={assetPath("/images/envite-table.png")}
                 alt="Visión horizontal de la mesa de Envite Canario con jugadores, cartas y zona central de decisiones"
                 width={1672}
                 height={941}
@@ -246,7 +252,13 @@ export default function Home() {
         </section>
 
         <section className="community-band" id="comunidad" aria-labelledby="community-title">
-          <div className="community-image" aria-hidden="true" />
+          <div
+            className="community-image"
+            aria-hidden="true"
+            style={{
+              backgroundImage: `url("${assetPath("/images/envite-welcome.png")}")`,
+            }}
+          />
           <div className="section-inner community-inner">
             <p className="eyebrow">Tradición viva</p>
             <h2 id="community-title">No vamos a decidir las reglas desde un despacho.</h2>
@@ -296,7 +308,7 @@ export default function Home() {
           <div className="section-inner closing-inner">
             <Image
               className="closing-icon"
-              src="/images/envite-icon.png"
+              src={assetPath("/images/envite-icon.png")}
               alt=""
               width={180}
               height={180}

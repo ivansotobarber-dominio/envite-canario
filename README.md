@@ -96,3 +96,25 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
 - [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+
+## GitHub Pages
+
+The repository includes a GitHub Actions workflow that exports and publishes the
+prelaunch site as a static project site. The workflow keeps the private WebApp
+outside the public bundle.
+
+Local verification:
+
+```powershell
+$env:GITHUB_PAGES = "true"
+$env:GITHUB_REPOSITORY = "owner/envite-canario"
+$env:NEXT_PUBLIC_SITE_URL = "https://owner.github.io/envite-canario"
+npm run build:pages
+npm run test:pages
+```
+
+Expected public URL:
+
+```text
+https://owner.github.io/envite-canario/
+```

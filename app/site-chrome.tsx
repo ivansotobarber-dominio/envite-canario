@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../lib/site";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Envite Canario, inicio">
         <Image
-          src="/images/envite-icon.png"
+          src={assetPath("/images/envite-icon.png")}
           alt=""
           width={44}
           height={44}
