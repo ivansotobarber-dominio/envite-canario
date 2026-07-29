@@ -118,3 +118,7 @@ Expected public URL:
 ```text
 https://owner.github.io/envite-canario/
 ```
+For a custom domain, define the repository variable
+`PAGES_CUSTOM_DOMAIN=envitecanario.es`. The workflow then exports root-relative
+assets and canonical URLs for `https://envitecanario.es` while keeping the
+project-path build as the automatic fallback when the variable is absent.
