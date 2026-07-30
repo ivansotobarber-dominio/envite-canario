@@ -1,15 +1,40 @@
 import type { MetadataRoute } from "next";
+import { newsPosts, products } from "./content";
 import { siteUrl } from "../lib/site";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/privacidad", "/informacion-legal"];
+  const updated = new Date("2026-07-30T00:00:00+01:00");
+  const coreRoutes = [
+    { route: "", priority: 1, changeFrequency: "weekly" as const },
+    { route: "/app", priority: 0.95, changeFrequency: "weekly" as const },
+    { route: "/tienda", priority: 0.95, changeFrequency: "weekly" as const },
+    { route: "/torneos", priority: 0.9, changeFrequency: "daily" as const },
+    { route: "/clasificacion", priority: 0.75, changeFrequency: "weekly" as const },
+    { route: "/normas-y-variantes", priority: 0.9, changeFrequency: "monthly" as const },
+    { route: "/historia", priority: 0.85, changeFrequency: "monthly" as const },
+    { route: "/noticias", priority: 0.85, changeFrequency: "weekly" as const },
+    { route: "/privacidad", priority: 0.3, changeFrequency: "monthly" as const },
+    { route: "/informacion-legal", priority: 0.3, changeFrequency: "monthly" as const },
+  ];
 
-  return routes.map((route) => ({
-    url: siteUrl + route,
-    lastModified: new Date(),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.3,
+  const productRoutes = products.map((product) => ({
+    route: `/tienda/${product.slug}`,
+    priority: 0.75,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const newsRoutes = newsPosts.map((post) => ({
+    route: `/noticias/${post.slug}`,
+    priority: 0.65,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...coreRoutes, ...productRoutes, ...newsRoutes].map((item) => ({
+    url: siteUrl + item.route,
+    lastModified: updated,
+    changeFrequency: item.changeFrequency,
+    priority: item.priority,
   }));
 }

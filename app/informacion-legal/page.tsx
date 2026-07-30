@@ -5,7 +5,7 @@ import { SiteFooter, SiteHeader } from "../site-chrome";
 export const metadata: Metadata = {
   title: "Información del proyecto",
   description:
-    "Información de uso, propiedad y estado de la web de prelanzamiento de Envite Canario.",
+    "Estado, propiedad, catálogo y condiciones actuales de la web y la WebApp de Envite Canario.",
   alternates: {
     canonical: "/informacion-legal",
   },
@@ -18,44 +18,65 @@ export default function LegalInformationPage() {
       <main className="legal-page">
         <div className="legal-inner">
           <p className="eyebrow">Información del proyecto</p>
-          <h1>Envite Canario está en prelanzamiento.</h1>
+          <h1>Envite Canario está en desarrollo público.</h1>
           <p className="legal-lead">
-            Esta web presenta un proyecto independiente en desarrollo. No es una
-            federación, una fuente oficial de reglas ni una tienda activa.
+            Esta web presenta un proyecto independiente. No es una federación,
+            no representa un reglamento oficial único y todavía no opera una
+            tienda transaccional.
           </p>
 
           <section>
             <h2>Finalidad</h2>
             <p>
-              Dar a conocer el desarrollo de la app, su enfoque cultural, la hoja de
-              ruta de comunidad y torneos, y la futura línea de productos físicos.
+              Facilitar el acceso a la WebApp, publicar el catálogo en
+              preparación, reunir torneos verificados y documentar normas,
+              variantes, noticias e historia del Envite Canario.
+            </p>
+          </section>
+
+          <section>
+            <h2>WebApp en beta</h2>
+            <p>
+              La WebApp es una versión de prueba. El motor, la interfaz y las
+              reglas pueden cambiar. No debe utilizarse como árbitro definitivo
+              de una partida o de un torneo.
             </p>
           </section>
 
           <section>
             <h2>Reglas, señas y variantes</h2>
             <p>
-              El Envite mantiene variantes por isla, municipio y costumbre de mesa.
-              Los contenidos se publicarán diferenciando la base contrastada, las
-              variantes identificadas y los elementos todavía pendientes de validar.
+              El Envite mantiene variantes por isla, municipio, modalidad y
+              costumbre de mesa. Los contenidos diferencian base contrastada,
+              variante identificada, memoria oral y elementos pendientes de validar.
+            </p>
+          </section>
+
+          <section>
+            <h2>Catálogo no transaccional</h2>
+            <p>
+              La sección Tienda muestra conceptos de producto en desarrollo. No
+              ofrece precios, stock, reservas, preventas, carrito, pagos ni fechas
+              de entrega. Las imágenes conceptuales no equivalen al producto final.
+            </p>
+          </section>
+
+          <section>
+            <h2>Torneos y clasificación</h2>
+            <p>
+              Las convocatorias se publican con fuente y fecha de verificación.
+              La clasificación no mostrará puntos o participantes hasta disponer
+              de un reglamento y resultados trazables.
             </p>
           </section>
 
           <section>
             <h2>Propiedad intelectual</h2>
             <p>
-              La marca, el diseño, los textos, el software y los materiales propios de
-              Envite Canario no pueden reutilizarse comercialmente sin autorización.
-              Las referencias culturales y las reglas tradicionales no se presentan
-              como una apropiación exclusiva del proyecto.
-            </p>
-          </section>
-
-          <section>
-            <h2>Servicios todavía no activos</h2>
-            <p>
-              No hay compras, suscripciones, publicidad, premios, inscripciones a
-              torneos ni acceso público a la beta en esta versión.
+              La marca, el diseño, los textos, el software y los materiales propios
+              de Envite Canario no pueden reutilizarse comercialmente sin autorización.
+              Las reglas tradicionales y las referencias culturales no se presentan
+              como propiedad exclusiva del proyecto.
             </p>
           </section>
 

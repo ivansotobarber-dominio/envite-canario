@@ -5,7 +5,7 @@ import { SiteFooter, SiteHeader } from "../site-chrome";
 export const metadata: Metadata = {
   title: "Privacidad",
   description:
-    "Información sobre privacidad y tratamiento de datos en la web de prelanzamiento de Envite Canario.",
+    "Privacidad y tratamiento de datos en la web y la WebApp beta de Envite Canario.",
   alternates: {
     canonical: "/privacidad",
   },
@@ -18,44 +18,54 @@ export default function PrivacyPage() {
       <main className="legal-page">
         <div className="legal-inner">
           <p className="eyebrow">Privacidad</p>
-          <h1>Una web sin captación de datos.</h1>
+          <h1>Web pública sin captación de datos personales.</h1>
           <p className="legal-lead">
-            Esta versión de prelanzamiento es informativa. No incluye cuentas,
-            formularios, newsletter, pagos, publicidad ni analítica de terceros.
+            Esta versión no incluye cuentas, formularios, newsletter, pagos,
+            publicidad ni analítica de terceros.
           </p>
 
           <section>
             <h2>Qué datos solicitamos</h2>
             <p>
-              Ninguno. La web no pide nombre, correo, teléfono, ubicación ni datos
-              de juego. Tampoco instala herramientas publicitarias o de seguimiento.
+              Ninguno. La web no pide nombre, correo, teléfono, ubicación,
+              contactos ni datos de pago.
+            </p>
+          </section>
+
+          <section>
+            <h2>Datos locales de la WebApp</h2>
+            <p>
+              La beta puede guardar en el propio navegador preferencias, estado
+              de prueba o recursos necesarios para funcionar. Estos datos locales
+              pueden eliminarse desde los ajustes del navegador o al borrar los
+              datos del sitio. No se usan para crear un perfil personal.
             </p>
           </section>
 
           <section>
             <h2>Alojamiento y registros técnicos</h2>
             <p>
-              El proveedor de alojamiento puede procesar registros técnicos mínimos,
-              como dirección IP, fecha, navegador y recurso solicitado, para operar,
-              proteger y diagnosticar el servicio.
+              El proveedor de alojamiento puede procesar registros técnicos
+              mínimos, como dirección IP, fecha, navegador y recurso solicitado,
+              para operar, proteger y diagnosticar el servicio.
             </p>
           </section>
 
           <section>
-            <h2>Enlaces a redes sociales</h2>
+            <h2>Enlaces externos</h2>
             <p>
-              Cuando se activen los perfiles oficiales, los enlaces dirigirán a
-              plataformas externas con sus propias condiciones y políticas de
-              privacidad. Esta web no incrustará sus píxeles ni widgets en la fase inicial.
+              Los enlaces a fuentes, redes sociales y futuras tiendas de apps
+              dirigen a plataformas externas con sus propias condiciones y
+              políticas de privacidad.
             </p>
           </section>
 
           <section>
             <h2>Cambios futuros</h2>
             <p>
-              Antes de activar formularios, analítica, tienda, cuentas o beta pública,
-              esta información se ampliará con el responsable, las finalidades, la base
-              jurídica, los proveedores y los canales para ejercer derechos.
+              Antes de activar formularios, analítica, compras, cuentas o juego
+              online, esta información se ampliará con responsable, finalidades,
+              base jurídica, proveedores, conservación y ejercicio de derechos.
             </p>
           </section>
 

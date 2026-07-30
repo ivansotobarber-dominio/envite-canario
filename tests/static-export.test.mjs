@@ -10,30 +10,56 @@ function escapedPattern(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-test("exports the public routes required by GitHub Pages", async () => {
-  const home = await exportedHtml("index.html");
-  const privacy = await exportedHtml("privacidad/index.html");
-  const legal = await exportedHtml("informacion-legal/index.html");
+test("exports the complete portal required by GitHub Pages", async () => {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const required = [
+    ["index.html", /Envite Canario/i],
+    ["app/index.html", /Abrir WebApp/i],
+    ["tienda/index.html", /Baraja Envite Canario/i],
+    ["torneos/index.html", /Tinajo/i],
+    ["clasificacion/index.html", /Clasificación en preparación/i],
+    ["normas-y-variantes/index.html", /6 contra 6/i],
+    ["historia/index.html", /procedencia exacta no está demostrada/i],
+    ["noticias/index.html", /Noticias de Envite Canario/i],
+    ["privacidad/index.html", /Privacidad/i],
+    ["informacion-legal/index.html", /Información del proyecto/i],
+    ["tienda/baraja-envite-canario/index.html", /Diseño y prototipo/i],
+    ["noticias/webapp-envite-canario-beta-publica/index.html", /beta pública/i],
+  ];
 
-  assert.match(home, /<h1[^>]*>Envite Canario<\/h1>/i);
+  for (const [path, pattern] of required) {
+    const html = await exportedHtml(path);
+    assert.match(html, pattern, `${path} missing expected content`);
+    assert.doesNotMatch(html, /\.\.\.|…/, `${path} contains ellipses`);
+  }
+
+  const home = await exportedHtml("index.html");
   assert.match(home, new RegExp(`${escapedPattern(basePath)}/_next/`));
   assert.match(
     home,
-    new RegExp(`${escapedPattern(basePath)}/images/envite-table\\.png`),
+    new RegExp(`${escapedPattern(basePath)}/images/envite-shop-collection-v01\\.png`),
   );
-  assert.doesNotMatch(home, /\.\.\.|\u2026/);
-  assert.match(privacy, /sin captaci\u00f3n de datos/i);
-  assert.match(legal, /proyecto independiente en desarrollo/i);
 });
 
-test("exports crawlable metadata endpoints", async () => {
+test("exports the WebApp shell under the public domain", async () => {
+  const index = await exportedHtml("webapp/index.html");
+  const manifest = await exportedHtml("webapp/manifest.json");
+
+  assert.match(index, /<base href="\/webapp\/">/i);
+  assert.match(index, /Envite Canario Beta/i);
+  assert.match(manifest, /Envite Canario Beta/i);
+});
+
+test("exports crawlable metadata and excludes the application shell", async () => {
   const robots = await exportedHtml("robots.txt");
   const sitemap = await exportedHtml("sitemap.xml");
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://example.invalid/envite-canario";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://envitecanario.es";
 
-  assert.match(robots, /Sitemap:/);
+  assert.match(robots, /Disallow: \/webapp\//i);
+  assert.match(robots, /Sitemap:/i);
   assert.match(sitemap, new RegExp(escapedPattern(siteUrl)));
+  assert.match(sitemap, /\/tienda<\/loc>/i);
+  assert.match(sitemap, /\/torneos<\/loc>/i);
+  assert.doesNotMatch(sitemap, /\/webapp\/?<\/loc>/i);
 });

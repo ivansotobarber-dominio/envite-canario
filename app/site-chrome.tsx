@@ -17,12 +17,13 @@ export function SiteHeader() {
         <span>Envite Canario</span>
       </Link>
       <nav aria-label="Navegación principal">
-        <Link href="/#proyecto">Proyecto</Link>
-        <Link href="/#hoja-de-ruta">Hoja de ruta</Link>
-        <Link href="/#comunidad">Comunidad</Link>
-        <Link className="nav-cta" href="/#redes">
-          Redes
-        </Link>
+        <Link className="nav-play" href="/app">Jugar</Link>
+        <Link className="nav-cta" href="/tienda">Tienda</Link>
+        <Link href="/torneos">Torneos</Link>
+        <Link href="/clasificacion">Clasificación</Link>
+        <Link href="/normas-y-variantes">Normas</Link>
+        <Link href="/historia">Historia</Link>
+        <Link href="/noticias">Noticias</Link>
       </nav>
     </header>
   );
@@ -36,9 +37,15 @@ export function SiteFooter() {
         <span>Jugar. Aprender. Conservar la mesa.</span>
       </div>
       <div className="footer-links">
+        <Link href="/app">Jugar</Link>
+        <Link href="/tienda">Tienda</Link>
+        <Link href="/torneos">Torneos</Link>
+        <Link href="/clasificacion">Clasificación</Link>
+        <Link href="/normas-y-variantes">Normas y variantes</Link>
+        <Link href="/historia">Historia</Link>
+        <Link href="/noticias">Noticias</Link>
         <Link href="/privacidad">Privacidad</Link>
         <Link href="/informacion-legal">Información del proyecto</Link>
-        <Link href="/#redes">Redes oficiales</Link>
       </div>
       <p>© {new Date().getFullYear()} Envite Canario</p>
     </footer>
