@@ -41,7 +41,7 @@ export default function RankingPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="portal-title-band ranking-title-band">
           <div className="section-inner portal-title">
             <p className="eyebrow">Competición con reglas públicas</p>

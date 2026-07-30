@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../site-chrome";
-import { assetPath, siteUrl } from "../../lib/site";
+import { assetPath } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Torneos populares",
@@ -23,43 +23,15 @@ const verificationFields = [
 ];
 
 export default function TournamentsPage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    name: "Envite 2 contra 2 de las Fiestas de San Roque 2026",
-    startDate: "2026-08-01T20:00:00+01:00",
-    eventStatus: "https://schema.org/EventScheduled",
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    location: {
-      "@type": "Place",
-      name: "Ventorrillos de las Fiestas de San Roque",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Tinajo",
-        addressRegion: "Lanzarote",
-        addressCountry: "ES",
-      },
-    },
-    organizer: {
-      "@type": "Organization",
-      name: "Club de Lucha Tinajo y Concejalía de Festejos del Ayuntamiento de Tinajo",
-    },
-    url: "https://www.tinajo.es/noticias/campeonatos-tradicionales-san-roque-0",
-    mainEntityOfPage: `${siteUrl}/torneos`,
-  };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="tournament-hero">
           <Image
             className="tournament-hero-image"
-            src={assetPath("/images/envite-tournament-harbour-v01.png")}
+            src={assetPath("/images/envite-tournament-harbour-v01.webp")}
             alt="Representación editorial de un torneo popular de cartas junto a un puerto canario"
             width={1680}
             height={945}
@@ -112,6 +84,12 @@ export default function TournamentsPage() {
                       <dd>Club de Lucha Tinajo con la Concejalía de Festejos</dd>
                     </div>
                   </dl>
+                  <Link
+                    className="text-link"
+                    href="/torneos/envite-2-contra-2-tinajo-2026"
+                  >
+                    Ver ficha completa del torneo
+                  </Link>
                   <a
                     className="text-link"
                     href="https://www.tinajo.es/noticias/campeonatos-tradicionales-san-roque-0"

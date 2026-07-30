@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       "Productos físicos para jugar, regalar y organizar mesas de Envite Canario.",
     url: "/tienda",
-    images: ["/images/envite-shop-collection-v01.png"],
+    images: ["/images/envite-shop-collection-v01.webp"],
   },
 };
 
@@ -25,7 +25,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Tienda de Envite Canario",
-  url: `${siteUrl}/tienda`,
+  url: `${siteUrl}/tienda/`,
   description:
     "Catálogo conceptual de productos físicos de Envite Canario en preparación.",
   mainEntity: {
@@ -34,7 +34,7 @@ const structuredData = {
       "@type": "ListItem",
       position: index + 1,
       name: product.name,
-      url: `${siteUrl}/tienda/${product.slug}`,
+      url: `${siteUrl}/tienda/${product.slug}/`,
     })),
   },
 };
@@ -47,7 +47,7 @@ export default function ShopPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="portal-hero shop-hero">
           <div className="portal-hero-copy">
             <p className="eyebrow">Catálogo en preparación</p>
@@ -68,7 +68,7 @@ export default function ShopPage() {
           </div>
           <figure className="portal-hero-media">
             <Image
-              src={assetPath("/images/envite-shop-collection-v01.png")}
+              src={assetPath("/images/envite-shop-collection-v01.webp")}
               alt="Representación conceptual de una baraja, tapete, marcador y caja de Envite Canario"
               width={1680}
               height={945}
@@ -95,7 +95,7 @@ export default function ShopPage() {
                 <article className="product-card" key={product.slug}>
                   <div className={`product-crop product-crop-${index + 1}`}>
                     <Image
-                      src={assetPath("/images/envite-shop-collection-v01.png")}
+                      src={assetPath("/images/envite-shop-collection-v01.webp")}
                       alt=""
                       width={1680}
                       height={945}

@@ -55,7 +55,7 @@ export default async function NewsPostPage({ params }: NewsPostPageProps) {
     datePublished: post.isoDate,
     dateModified: post.isoDate,
     inLanguage: "es",
-    mainEntityOfPage: `${siteUrl}/noticias/${post.slug}`,
+    mainEntityOfPage: `${siteUrl}/noticias/${post.slug}/`,
     author: {
       "@type": "Organization",
       name: "Envite Canario",
@@ -63,7 +63,7 @@ export default async function NewsPostPage({ params }: NewsPostPageProps) {
     publisher: {
       "@type": "Organization",
       name: "Envite Canario",
-      url: siteUrl,
+      url: `${siteUrl}/`,
     },
   };
 
@@ -74,7 +74,7 @@ export default async function NewsPostPage({ params }: NewsPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <SiteHeader />
-      <main className="article-page">
+      <main id="contenido-principal" tabIndex={-1} className="article-page">
         <article className="article-inner">
           <div className="news-meta">
             <span>{post.category}</span>

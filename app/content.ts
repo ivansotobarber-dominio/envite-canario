@@ -109,14 +109,14 @@ export type NewsPost = {
 export const newsPosts: NewsPost[] = [
   {
     slug: "web-oficial-envite-canario",
-    title: "Envite Canario abre su web oficial",
+    title: "Envite Canario abre la web del proyecto",
     summary:
       "envitecanario.es reúne el desarrollo de la app, la tienda, los torneos y el archivo cultural del proyecto.",
     category: "Proyecto",
     published: "30 de julio de 2026",
     isoDate: "2026-07-30",
     paragraphs: [
-      "La web oficial nace como punto único de entrada al proyecto Envite Canario. Aquí se publicará el estado real de la aplicación, el catálogo de productos, el calendario de torneos verificados, las noticias y el trabajo de documentación histórica.",
+      "La web del proyecto nace como punto único de entrada a Envite Canario. Aquí se publicará el estado real de la aplicación, el catálogo de productos, el calendario de torneos verificados, las noticias y el trabajo de documentación histórica.",
       "La primera versión es informativa y no recoge datos personales. La tienda funciona como catálogo en preparación y no permite compras, reservas ni pagos.",
       "El objetivo es avanzar con transparencia: cada área distingue lo que ya está disponible, lo que está en validación y lo que todavía necesita una decisión.",
     ],

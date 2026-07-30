@@ -15,7 +15,7 @@ export default function LegalInformationPage() {
   return (
     <>
       <SiteHeader />
-      <main className="legal-page">
+      <main id="contenido-principal" tabIndex={-1} className="legal-page">
         <div className="legal-inner">
           <p className="eyebrow">Información del proyecto</p>
           <h1>Envite Canario está en desarrollo público.</h1>

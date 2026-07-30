@@ -5,22 +5,17 @@ import { SiteFooter, SiteHeader } from "../site-chrome";
 export const metadata: Metadata = {
   title: "Historia del Envite Canario",
   description:
-    "Historia documentada, variantes, vocabulario y memoria oral del juego del Envite en Canarias.",
+    "Historia documentada, variantes, vocabulario, fuentes y memoria oral del juego del Envite en Canarias.",
   alternates: {
     canonical: "/historia",
   },
 };
 
-const sourceUrl =
-  "https://www.academiacanarialengua.org/consultas/2010/04/envite/";
-const dictionaryUrl =
-  "https://www.academiacanarialengua.org/diccionario/entrada/envite/";
-
 export default function HistoryPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="history-hero">
           <div className="section-inner history-hero-inner">
             <p className="eyebrow">Historia y memoria oral</p>
@@ -41,7 +36,7 @@ export default function HistoryPage() {
             </div>
             <div>
               <p>
-                La Academia Canaria de la Lengua define el envite como un juego
+                La Academia Canaria de la Lengua describe el envite como un juego
                 de baraja entre dos equipos en el que destacan la comunicación
                 mediante señas y la puja lanzada al envidar.
               </p>
@@ -49,9 +44,9 @@ export default function HistoryPage() {
                 La misma fuente advierte que no se juega igual en todas las islas.
                 Esa diversidad forma parte del objeto de estudio del proyecto.
               </p>
-              <a className="text-link" href={dictionaryUrl} target="_blank" rel="noreferrer">
-                Consultar el diccionario de canarismos
-              </a>
+              <Link className="text-link" href="/fuentes">
+                Consultar el índice de fuentes
+              </Link>
             </div>
           </div>
         </section>
@@ -62,10 +57,10 @@ export default function HistoryPage() {
               <p className="eyebrow">Evidencia e hipótesis</p>
               <h2 id="evidence-title">La procedencia exacta no está demostrada.</h2>
               <p>
-                La Academia Canaria de la Lengua indica que no conoce un trabajo
-                que pruebe de forma concluyente cómo llegó el juego a Canarias.
-                También recoge que se ha especulado sobre su relación con el mus,
-                pero subraya que existen diferencias considerables.
+                Las fuentes consultadas no permiten probar de forma concluyente
+                cómo llegó el juego a Canarias. Algunas recogen hipótesis sobre
+                su relación con otros juegos de envite, pero también señalan
+                diferencias relevantes.
               </p>
             </div>
             <div className="evidence-grid">
@@ -94,9 +89,9 @@ export default function HistoryPage() {
                 </p>
               </article>
             </div>
-            <a className="button button-dark" href={sourceUrl} target="_blank" rel="noreferrer">
-              Leer la consulta de la Academia
-            </a>
+            <Link className="button button-dark" href="/fuentes">
+              Revisar fuentes y alcance
+            </Link>
           </div>
         </section>
 
@@ -143,9 +138,12 @@ export default function HistoryPage() {
                 </div>
               </li>
             </ol>
-            <Link className="text-link" href="/torneos">
-              Ver el calendario de torneos
-            </Link>
+            <nav className="related-knowledge" aria-label="Continuar aprendiendo sobre el Envite">
+              <Link href="/como-jugar">Cómo jugar</Link>
+              <Link href="/glosario">Consultar el glosario</Link>
+              <Link href="/fuentes">Ver todas las fuentes</Link>
+              <Link href="/torneos">Ver torneos</Link>
+            </nav>
           </div>
         </section>
       </main>

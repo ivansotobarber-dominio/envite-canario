@@ -16,7 +16,7 @@ export default function NewsPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="portal-title-band news-title-band">
           <div className="section-inner portal-title">
             <p className="eyebrow">Actualidad del proyecto</p>

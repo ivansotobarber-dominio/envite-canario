@@ -15,7 +15,7 @@ export default function PrivacyPage() {
   return (
     <>
       <SiteHeader />
-      <main className="legal-page">
+      <main id="contenido-principal" tabIndex={-1} className="legal-page">
         <div className="legal-inner">
           <p className="eyebrow">Privacidad</p>
           <h1>Web pública sin captación de datos personales.</h1>

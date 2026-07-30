@@ -44,11 +44,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       <SiteHeader />
-      <main className="product-page">
+      <main id="contenido-principal" tabIndex={-1} className="product-page">
         <section className="product-detail">
           <figure className="product-detail-media">
             <Image
-              src={assetPath("/images/envite-shop-collection-v01.png")}
+              src={assetPath("/images/envite-shop-collection-v01.webp")}
               alt={`Representación conceptual de ${product.name}`}
               width={1680}
               height={945}

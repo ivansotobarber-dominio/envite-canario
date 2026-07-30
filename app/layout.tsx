@@ -2,18 +2,40 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { siteUrl } from "../lib/site";
 
+const description =
+  "Portal independiente para jugar, aprender y conservar el Envite Canario, con WebApp, reglas, variantes, glosario, fuentes, torneos, historia y tienda en preparación.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "Envite Canario",
   title: {
-    default: "Envite Canario",
+    default: "Envite Canario, juego, reglas y cultura",
     template: "%s | Envite Canario",
   },
-  description:
-    "Proyecto independiente para aprender, jugar y conservar el Envite Canario.",
-  authors: [{ name: "Envite Canario" }],
-  creator: "Envite Canario",
-  publisher: "Envite Canario",
+  description,
+  keywords: [
+    "Envite Canario",
+    "cómo jugar al Envite Canario",
+    "reglas del Envite Canario",
+    "señas del Envite",
+    "juego de cartas canario",
+    "torneos de Envite en Canarias",
+  ],
+  authors: [{ name: "Proyecto Envite Canario" }],
+  creator: "Proyecto Envite Canario",
+  publisher: "Proyecto Envite Canario",
+  category: "Juegos de cartas y cultura canaria",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -24,8 +46,8 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "/",
     siteName: "Envite Canario",
-    title: "Envite Canario",
-    description: "Jugar. Aprender. Conservar la mesa.",
+    title: "Envite Canario, juego, reglas y cultura",
+    description,
     images: [
       {
         url: "/og.png",
@@ -37,8 +59,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Envite Canario",
-    description: "Jugar. Aprender. Conservar la mesa.",
+    title: "Envite Canario, juego, reglas y cultura",
+    description,
     images: ["/og.png"],
   },
 };
@@ -57,7 +79,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#contenido-principal">
+          Saltar al contenido
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

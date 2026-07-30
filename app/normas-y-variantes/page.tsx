@@ -5,7 +5,7 @@ import { SiteFooter, SiteHeader } from "../site-chrome";
 export const metadata: Metadata = {
   title: "Normas y variantes",
   description:
-    "Base común, conceptos y variantes de 2 contra 2 a 6 contra 6 del Envite Canario, con fuentes y límites explícitos.",
+    "Base común, conceptos, fuentes y variantes de 2 contra 2 a 6 contra 6 del Envite Canario, con límites explícitos.",
   alternates: {
     canonical: "/normas-y-variantes",
   },
@@ -39,14 +39,11 @@ const modes = [
   },
 ];
 
-const sourceUrl =
-  "https://www.academiacanarialengua.org/diccionario/entrada/envite/";
-
 export default function RulesAndVariantsPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="rules-hero">
           <div className="section-inner rules-hero-inner">
             <p className="eyebrow">Cómo se juega</p>
@@ -68,9 +65,9 @@ export default function RulesAndVariantsPage() {
               <p className="eyebrow">Base documentada</p>
               <h2 id="rules-core-title">Lo que comparte la mesa.</h2>
               <p>
-                La documentación institucional y académica permite identificar
-                un núcleo común, pero los detalles de tanteo, cartas, señas y
-                terminología deben vincularse siempre a su variante.
+                La documentación inventariada permite identificar un núcleo
+                común, pero los detalles de tanteo, cartas, señas y terminología
+                deben vincularse siempre a su variante y a su fuente.
               </p>
             </div>
             <div className="rules-core-grid">
@@ -95,9 +92,9 @@ export default function RulesAndVariantsPage() {
                 <p>Un equipo puede retar al contrario y este debe responder.</p>
               </article>
             </div>
-            <a className="text-link" href={sourceUrl} target="_blank" rel="noreferrer">
-              Ver definición de la Academia Canaria de la Lengua
-            </a>
+            <Link className="text-link" href="/fuentes">
+              Consultar las fuentes y sus límites
+            </Link>
           </div>
         </section>
 
@@ -155,7 +152,12 @@ export default function RulesAndVariantsPage() {
           <div className="section-inner rules-cta">
             <div>
               <p className="eyebrow">De la norma a la mesa</p>
-              <h2>Prueba el flujo actual en la WebApp.</h2>
+              <h2>Aprende el flujo y prueba la WebApp.</h2>
+              <nav className="related-knowledge" aria-label="Guías y referencias del Envite">
+                <Link href="/como-jugar">Cómo jugar</Link>
+                <Link href="/glosario">Glosario</Link>
+                <Link href="/fuentes">Fuentes</Link>
+              </nav>
             </div>
             <Link className="button button-dark" href="/app">
               Ir a jugar

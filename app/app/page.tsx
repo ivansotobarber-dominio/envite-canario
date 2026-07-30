@@ -17,7 +17,7 @@ export default function AppAccessPage() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="app-access-hero">
           <div className="app-access-copy">
             <p className="eyebrow">Jugar ahora</p>
@@ -41,7 +41,7 @@ export default function AppAccessPage() {
           </div>
           <figure className="app-access-media">
             <Image
-              src={assetPath("/images/envite-table.png")}
+              src={assetPath("/images/envite-table.webp")}
               alt="Mesa horizontal de la aplicación Envite Canario"
               width={1672}
               height={941}

@@ -6,9 +6,9 @@ import { SiteFooter, SiteHeader } from "./site-chrome";
 import { assetPath, siteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Envite Canario | Jugar, tienda, torneos y cultura",
+  title: "Jugar, tienda, torneos y cultura",
   description:
-    "Portal oficial de Envite Canario: WebApp, tienda, torneos populares, clasificación, normas, variantes, noticias e historia.",
+    "Portal independiente de Envite Canario: WebApp, tienda, torneos populares, clasificación, normas, variantes, glosario, fuentes, noticias e historia.",
   alternates: {
     canonical: "/",
   },
@@ -20,18 +20,19 @@ const structuredData = {
     {
       "@type": "WebSite",
       name: "Envite Canario",
-      url: siteUrl,
+      url: `${siteUrl}/`,
       inLanguage: "es",
       description:
         "Portal independiente para jugar, aprender y conservar el Envite Canario.",
     },
     {
-      "@type": "VideoGame",
+      "@type": ["VideoGame", "SoftwareApplication"],
       name: "Envite Canario",
-      url: `${siteUrl}/app`,
+      url: `${siteUrl}/app/`,
       applicationCategory: "GameApplication",
-      operatingSystem: "Web, iOS, Android",
-      gamePlatform: ["Web", "iOS", "Android"],
+      operatingSystem: "Web",
+      gamePlatform: "Web browser",
+      isAccessibleForFree: true,
       inLanguage: "es",
       description:
         "Juego de cartas en desarrollo para aprender y jugar al Envite Canario.",
@@ -85,7 +86,7 @@ const portalLinks = [
 ];
 
 const statusItems = [
-  { label: "Web oficial", value: "Activa" },
+  { label: "Portal independiente", value: "Activo" },
   { label: "WebApp", value: "Beta pública" },
   { label: "Tienda", value: "Catálogo abierto" },
   { label: "App Store y Google Play", value: "En preparación" },
@@ -100,12 +101,12 @@ export default function Home() {
       />
       <SiteHeader />
 
-      <main>
+      <main id="contenido-principal" tabIndex={-1}>
         <section
           className="hero"
           aria-labelledby="hero-title"
           style={{
-            backgroundImage: `url("${assetPath("/images/envite-hero.png")}")`,
+            backgroundImage: `url("${assetPath("/images/envite-hero.webp")}")`,
           }}
         >
           <div className="hero-shade" aria-hidden="true" />
@@ -152,13 +153,24 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+            <div className="knowledge-rail">
+              <div>
+                <span>Guía de referencia</span>
+                <strong>Aprender con contexto y fuentes visibles.</strong>
+              </div>
+              <nav className="knowledge-links" aria-label="Guías de Envite Canario">
+                <Link href="/como-jugar">Cómo jugar</Link>
+                <Link href="/glosario">Glosario</Link>
+                <Link href="/fuentes">Fuentes consultadas</Link>
+              </nav>
+            </div>
           </div>
         </section>
 
         <section className="home-shop-band" aria-labelledby="home-shop-title">
           <div className="home-shop-image">
             <Image
-              src={assetPath("/images/envite-shop-collection-v01.png")}
+              src={assetPath("/images/envite-shop-collection-v01.webp")}
               alt="Representación conceptual de una colección física de Envite Canario"
               width={1680}
               height={945}
@@ -224,7 +236,7 @@ export default function Home() {
             </div>
             <figure className="product-figure">
               <Image
-                src={assetPath("/images/envite-table.png")}
+                src={assetPath("/images/envite-table.webp")}
                 alt="Mesa horizontal de Envite Canario con jugadores, cartas y decisiones centrales"
                 width={1672}
                 height={941}
@@ -252,7 +264,7 @@ export default function Home() {
             <div className="culture-dual-grid">
               <article>
                 <Image
-                  src={assetPath("/images/envite-community-guachinche-v01.png")}
+                  src={assetPath("/images/envite-community-guachinche-v01.webp")}
                   alt="Representación editorial de una partida en un guachinche durante una romería"
                   width={1680}
                   height={945}
@@ -266,7 +278,7 @@ export default function Home() {
               </article>
               <article>
                 <Image
-                  src={assetPath("/images/envite-tournament-harbour-v01.png")}
+                  src={assetPath("/images/envite-tournament-harbour-v01.webp")}
                   alt="Representación editorial de un torneo popular junto a un puerto canario"
                   width={1680}
                   height={945}
@@ -330,29 +342,25 @@ export default function Home() {
         <section className="social-band" id="redes" aria-labelledby="social-title">
           <div className="section-inner social-layout">
             <div className="section-heading">
-              <p className="eyebrow">Canales oficiales</p>
-              <h2 id="social-title">Una identidad común en tres redes.</h2>
+              <p className="eyebrow">Redes del proyecto</p>
+              <h2 id="social-title">Cuatro canales, una identidad coherente.</h2>
               <p>
-                Instagram, Facebook y X usarán el mismo nombre, identidad y enlace
-                oficial. Los perfiles se conectarán aquí cuando estén reservados.
+                Instagram, Facebook, X y YouTube están en preparación. Ninguna
+                cuenta se enlazará hasta que esté creada, protegida y conectada
+                con el canal propio del proyecto.
               </p>
+              <Link className="text-link" href="/redes-sociales">
+                Ver el estado de las redes
+              </Link>
             </div>
             <div className="social-list" aria-label="Redes sociales previstas">
-              <div>
-                <span className="network">Instagram</span>
-                <strong>@EnviteCanario</strong>
-                <small>Apertura en curso</small>
-              </div>
-              <div>
-                <span className="network">Facebook</span>
-                <strong>Envite Canario</strong>
-                <small>Apertura en curso</small>
-              </div>
-              <div>
-                <span className="network">X</span>
-                <strong>@EnviteCanario</strong>
-                <small>Apertura en curso</small>
-              </div>
+              {["Instagram", "Facebook", "X", "YouTube"].map((network) => (
+                <div key={network}>
+                  <span className="network">{network}</span>
+                  <strong>En preparación</strong>
+                  <small>Enlace pendiente</small>
+                </div>
+              ))}
             </div>
           </div>
         </section>
