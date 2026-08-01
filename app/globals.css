@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -28,7 +29,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   letter-spacing: 0;
 }
@@ -163,7 +164,7 @@ a {
 }
 
 .hero h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 108px;
   font-weight: 700;
   line-height: 0.9;
@@ -173,7 +174,7 @@ a {
 
 .hero-claim {
   color: var(--sun);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 42px;
   font-weight: 700;
   margin: 18px 0 0;
@@ -296,7 +297,7 @@ a {
 .project-copy h2,
 .community-inner h2,
 .closing-inner h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 58px;
   line-height: 1.02;
   margin: 0;
@@ -438,7 +439,7 @@ a {
 }
 
 .pillar-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 27px;
   margin: 52px 0 12px;
 }
@@ -466,7 +467,7 @@ a {
 }
 
 .ecosystem-heading h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 58px;
   line-height: 1.02;
   margin: 0;
@@ -702,7 +703,7 @@ a {
 }
 
 .footer-brand strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 24px;
 }
 
@@ -739,7 +740,7 @@ a {
 }
 
 .legal-inner h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 72px;
   line-height: 1;
   margin: 0;
@@ -1146,7 +1147,7 @@ a {
 }
 
 .portal-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 27px;
   margin: 48px 0 10px;
 }
@@ -1227,7 +1228,7 @@ a {
 .rules-cta h2,
 .install-layout h2,
 .variant-policy-layout h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 46px;
   line-height: 1.04;
   margin: 0;
@@ -1293,7 +1294,7 @@ a {
 }
 
 .culture-dual-grid h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 28px;
   margin: 10px 0;
 }
@@ -1364,7 +1365,7 @@ a {
 }
 
 .home-news-grid h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 25px;
   line-height: 1.15;
   margin: 34px 0 12px;
@@ -1396,7 +1397,7 @@ a {
 .rules-hero h1,
 .app-access-copy h1,
 .tournament-hero-copy h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 64px;
   line-height: 0.98;
   margin: 0;
@@ -1496,7 +1497,7 @@ a {
 }
 
 .product-card h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 28px;
   line-height: 1.08;
   margin: 0;
@@ -1638,7 +1639,7 @@ a {
 }
 
 .product-spec-grid h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 36px;
   margin: 0 0 28px;
 }
@@ -1796,7 +1797,7 @@ a {
 }
 
 .event-date strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 58px;
 }
 
@@ -1825,7 +1826,7 @@ a {
 }
 
 .event-copy h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 34px;
   margin: 24px 0;
 }
@@ -1934,7 +1935,7 @@ a {
 }
 
 .ranking-empty strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 30px;
 }
 
@@ -2026,7 +2027,7 @@ a {
 }
 
 .news-card h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 34px;
   line-height: 1.1;
   margin: 70px 0 14px;
@@ -2079,7 +2080,7 @@ a {
 }
 
 .article-body p {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 19px;
   line-height: 1.75;
 }
@@ -2145,7 +2146,7 @@ a {
 .history-intro h2,
 .evidence-band h2,
 .history-work-band h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 46px;
   line-height: 1.05;
   margin: 0;
@@ -2191,7 +2192,7 @@ a {
 }
 
 .evidence-grid h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 27px;
   margin: 55px 0 10px;
 }
@@ -2317,7 +2318,7 @@ a {
 }
 
 .download-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 29px;
   margin: 12px 0 8px;
 }
@@ -2437,7 +2438,7 @@ a {
 }
 
 .rules-core-grid h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 25px;
   margin: 58px 0 10px;
 }
@@ -2929,7 +2930,7 @@ a {
 }
 
 .knowledge-rail > div strong {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 22px;
   line-height: 1.25;
 }
@@ -2972,7 +2973,7 @@ a {
 }
 
 .social-network-hero-copy h1 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: clamp(48px, 6vw, 88px);
   line-height: 0.98;
   margin: 20px 0 30px;
@@ -3039,7 +3040,7 @@ a {
 }
 
 .social-network-card h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 34px;
   margin: 8px 0 12px;
 }
@@ -3068,7 +3069,7 @@ a {
 
 .social-network-mark-facebook {
   background: var(--ocean);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 34px;
 }
 
@@ -3102,7 +3103,7 @@ a {
 }
 
 .social-crosslinks h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: clamp(38px, 5vw, 64px);
   line-height: 1.04;
   margin: 18px 0 0;
@@ -3223,3 +3224,177 @@ a {
 .skip-link:focus {
   transform: translateY(0);
 }
+
+/* Editorial archipelago portal */
+.island-portal {
+  background: #0b3027;
+  color: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+
+.island-portal::before {
+  background: linear-gradient(135deg, rgba(243, 198, 64, 0.16), transparent 34%, rgba(23, 110, 141, 0.3));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.island-portal-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.island-heading {
+  margin-bottom: 52px;
+  max-width: 760px;
+}
+
+.island-heading h2 {
+  color: var(--white);
+}
+
+.island-heading > p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.island-explorer {
+  align-items: stretch;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.5fr);
+}
+
+.island-map {
+  background: #155743;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+
+.island-map-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  inset: 0;
+  opacity: 0.55;
+  position: absolute;
+  transform: rotate(-7deg) scale(1.2);
+}
+
+.island-node {
+  align-items: center;
+  background: #f2dfae;
+  border: 3px solid rgba(23, 21, 18, 0.7);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  min-height: 74px;
+  padding: 10px 12px;
+  position: absolute;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  width: 145px;
+  z-index: 2;
+}
+
+.island-node:hover,
+.island-node-active {
+  background: var(--sun);
+  border-color: var(--white);
+  transform: translateY(-5px) rotate(-2deg);
+}
+
+.island-node strong {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 23px;
+  line-height: 0.95;
+}
+
+.island-number {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.island-node-tenerife { left: 25%; top: 18%; transform: rotate(-9deg); }
+.island-node-gran-canaria { left: 43%; top: 42%; transform: rotate(3deg); }
+.island-node-lanzarote { right: 9%; top: 30%; transform: rotate(8deg); }
+.island-node-fuerteventura { right: 18%; top: 54%; transform: rotate(-5deg); }
+.island-node-la-palma { left: 9%; top: 44%; transform: rotate(6deg); }
+.island-node-la-gomera { left: 27%; bottom: 16%; transform: rotate(8deg); }
+.island-node-el-hierro { left: 8%; bottom: 10%; transform: rotate(-4deg); }
+.island-node-la-graciosa { right: 5%; top: 12%; transform: rotate(-3deg); }
+
+.island-node-tenerife:hover,
+.island-node-tenerife.island-node-active,
+.island-node-gran-canaria:hover,
+.island-node-gran-canaria.island-node-active,
+.island-node-lanzarote:hover,
+.island-node-lanzarote.island-node-active,
+.island-node-fuerteventura:hover,
+.island-node-fuerteventura.island-node-active,
+.island-node-la-palma:hover,
+.island-node-la-palma.island-node-active,
+.island-node-la-gomera:hover,
+.island-node-la-gomera.island-node-active,
+.island-node-el-hierro:hover,
+.island-node-el-hierro.island-node-active,
+.island-node-la-graciosa:hover,
+.island-node-la-graciosa.island-node-active { transform: translateY(-5px) rotate(0deg); }
+
+.island-map-caption {
+  bottom: 24px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  position: absolute;
+  right: 24px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.island-detail {
+  align-content: center;
+  background: #f7f1df;
+  color: var(--ink);
+  display: grid;
+  min-height: 520px;
+  padding: 38px;
+}
+
+.island-detail .eyebrow { color: var(--ocean); margin-bottom: 4px; }
+.island-detail-index { color: var(--muted); font-size: 11px; font-weight: 900; text-transform: uppercase; }
+.island-detail h3 { color: var(--green); font-family: "Cormorant Garamond", Georgia, serif; font-size: 54px; line-height: 0.95; margin: 34px 0 14px; }
+.island-detail > p:not(.eyebrow) { color: var(--muted); line-height: 1.65; margin: 0 0 26px; }
+.island-detail .button { justify-self: start; }
+.island-detail-rule { background: var(--sun); height: 4px; margin: 42px 0 18px; width: 64px; }
+.island-detail small { color: var(--muted); line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .island-explorer { grid-template-columns: 1fr; }
+  .island-detail { min-height: 0; }
+}
+
+@media (max-width: 620px) {
+  .island-map { min-height: 600px; }
+  .island-node { min-height: 62px; width: 116px; }
+  .island-node strong { font-size: 19px; }
+  .island-node-tenerife { left: 24%; top: 16%; }
+  .island-node-gran-canaria { left: 38%; top: 39%; }
+  .island-node-lanzarote { right: 3%; top: 29%; }
+  .island-node-fuerteventura { right: 13%; top: 53%; }
+  .island-node-la-palma { left: 4%; top: 43%; }
+  .island-node-la-gomera { left: 24%; bottom: 17%; }
+  .island-node-el-hierro { left: 3%; bottom: 9%; }
+  .island-node-la-graciosa { right: 1%; top: 9%; }
+  .island-detail { padding: 30px 24px; }
+  .island-detail h3 { font-size: 44px; }
+}
+
