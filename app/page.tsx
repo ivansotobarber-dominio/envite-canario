@@ -5,6 +5,7 @@ import { newsPosts } from "./content";
 import { SiteFooter, SiteHeader } from "./site-chrome";
 import { assetPath, siteUrl } from "../lib/site";
 import { IslandPortal } from "./island-portal";
+import { JuegosCanariosBand } from "./juegos-canarios-band";
 
 export const metadata: Metadata = {
   title: "Jugar, tienda, torneos y cultura",
@@ -169,6 +170,8 @@ export default function Home() {
         </section>
 
         <IslandPortal />
+
+        <JuegosCanariosBand />
 
         <section className="home-shop-band" aria-labelledby="home-shop-title">
           <div className="home-shop-image">

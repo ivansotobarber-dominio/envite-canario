@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -9,17 +9,19 @@ type Island = {
   theme: string;
   description: string;
   href: string;
+  image: string;
+  landmark: string;
 };
 
 const islands: Island[] = [
-  { slug: "tenerife", name: "Tenerife", theme: "Historia", description: "Origenes, memoria y voces de la mesa canaria.", href: "/historia" },
-  { slug: "gran-canaria", name: "Gran Canaria", theme: "Tienda", description: "Baraja, tapete y objetos para llevar el Envite a casa.", href: "/tienda" },
-  { slug: "lanzarote", name: "Lanzarote", theme: "Torneos", description: "Calendario popular, convocatorias y resultados verificables.", href: "/torneos" },
-  { slug: "fuerteventura", name: "Fuerteventura", theme: "Normas", description: "Base comun, variantes y decisiones de cada modalidad.", href: "/normas-y-variantes" },
-  { slug: "la-palma", name: "La Palma", theme: "Fuentes", description: "Referencias, documentos y trazabilidad editorial.", href: "/fuentes" },
-  { slug: "la-gomera", name: "La Gomera", theme: "Comunidad", description: "Jugadores, asociaciones y mesas que mantienen viva la costumbre.", href: "/comunidad" },
-  { slug: "el-hierro", name: "El Hierro", theme: "Noticias", description: "Actualidad del proyecto, beta y nuevas mesas.", href: "/noticias" },
-  { slug: "la-graciosa", name: "La Graciosa", theme: "Glosario", description: "Palabras, senas y expresiones para entender la mesa.", href: "/glosario" },
+  { slug: "tenerife", name: "Tenerife", theme: "Historia", description: "Origenes, memoria y voces de la mesa canaria.", href: "/historia", image: "/images/envite-hero.webp", landmark: "Teide y memoria" },
+  { slug: "gran-canaria", name: "Gran Canaria", theme: "Noticias", description: "Actualidad, mesas y voces de la isla que mantienen vivo el juego.", href: "/noticias", image: "/images/envite-community-guachinche-v01.webp", landmark: "Roque y encuentro" },
+  { slug: "lanzarote", name: "Lanzarote", theme: "Tienda", description: "Baraja, tapete y objetos para llevar el Envite a casa.", href: "/tienda", image: "/images/envite-shop-collection-v01.webp", landmark: "Volcan y artesania" },
+  { slug: "fuerteventura", name: "Fuerteventura", theme: "Como jugar", description: "Base comun, cartas, turnos y decisiones para entrar a la mesa.", href: "/como-jugar", image: "/images/envite-table.webp", landmark: "Viento y cartas" },
+  { slug: "la-palma", name: "La Palma", theme: "Torneos", description: "Calendario popular, convocatorias y resultados verificables.", href: "/torneos", image: "/images/envite-tournament-harbour-v01.webp", landmark: "Estrellas y torneo" },
+  { slug: "la-gomera", name: "La Gomera", theme: "Señas", description: "La comunicacion de la pareja, el gesto y la lectura de mesa.", href: "/senas", image: "/images/envite-community-guachinche-v01.webp", landmark: "Silbo y senas" },
+  { slug: "el-hierro", name: "El Hierro", theme: "Comunidad", description: "Jugadores, asociaciones y mesas que mantienen viva la costumbre.", href: "/comunidad", image: "/images/envite-community-guachinche-v01.webp", landmark: "Garoé y mesa" },
+  { slug: "la-graciosa", name: "La Graciosa", theme: "WebApp", description: "Una entrada ligera a la mesa digital de Envite Canario.", href: "/app", image: "/images/envite-welcome.webp", landmark: "Caleta y juego" },
 ];
 
 export function IslandPortal() {
@@ -49,6 +51,8 @@ export function IslandPortal() {
               >
                 <span className="island-number">{String(index + 1).padStart(2, "0")}</span>
                 <strong>{island.name}</strong>
+                <img src={island.image} alt="" aria-hidden="true" />
+                <small>{island.landmark}</small>
               </button>
             ))}
             <span className="island-map-caption">Ocho islas, una mesa</span>
@@ -56,6 +60,10 @@ export function IslandPortal() {
           <div className="island-detail" aria-live="polite">
             <p className="eyebrow">{active.name}</p>
             <span className="island-detail-index">Puerta {String(islands.indexOf(active) + 1).padStart(2, "0")}</span>
+            <figure className="island-detail-visual">
+              <img src={active.image} alt={`${active.name}: ${active.theme}`} />
+              <figcaption>{active.landmark}</figcaption>
+            </figure>
             <h3>{active.theme}</h3>
             <p>{active.description}</p>
             <Link className="button button-primary" href={active.href}>

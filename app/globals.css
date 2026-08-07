@@ -376,7 +376,7 @@ a {
 
 .check-list li::before {
   color: var(--green);
-  content: "✓";
+  content: "âœ“";
   font-weight: 900;
   left: 2px;
   position: absolute;
@@ -1659,7 +1659,7 @@ a {
 
 .spec-list li::before {
   color: var(--green);
-  content: "◆";
+  content: "â—†";
   font-size: 10px;
   left: 2px;
   position: absolute;
@@ -2821,7 +2821,7 @@ a {
 }
 
 .nav-more > summary::after {
-  content: "↓";
+  content: "â†“";
   font-size: 12px;
   margin-left: 8px;
 }
@@ -2833,7 +2833,7 @@ a {
 }
 
 .nav-more[open] > summary::after {
-  content: "↑";
+  content: "â†‘";
 }
 
 .nav-menu {
@@ -3398,3 +3398,97 @@ a {
   .island-detail h3 { font-size: 44px; }
 }
 
+
+/* Real visual references for the active island, tied to the existing UX asset system. */
+.island-detail-visual {
+  margin: 0 0 18px;
+  position: relative;
+}
+.island-detail-visual img {
+  aspect-ratio: 16 / 8;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+.island-detail-visual figcaption {
+  background: rgba(11, 48, 39, 0.82);
+  bottom: 10px;
+  color: #fff8ec;
+  font-size: 10px;
+  font-weight: 900;
+  left: 10px;
+  letter-spacing: 0.08em;
+  padding: 6px 8px;
+  position: absolute;
+  text-transform: uppercase;
+}
+/* Realistic island cards use the existing UX visual language and stay readable at a glance. */
+.island-node { overflow: hidden; padding: 0; }
+.island-node img { display: block; height: 54px; margin: 8px 8px 0; object-fit: cover; opacity: .94; width: calc(100% - 16px); }
+.island-node small { display: block; font-family: var(--font-sans, Arial, sans-serif); font-size: 9px; letter-spacing: .04em; margin: 5px 8px 8px; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.juegos-canarios-band {
+  background: #f0e7d2;
+  color: var(--ink);
+  padding: 92px 0 84px;
+}
+.juegos-canarios-heading {
+  align-items: end;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+  margin-bottom: 32px;
+}
+.juegos-canarios-heading h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: .9;
+  margin: 0;
+}
+.juegos-canarios-heading > p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 520px;
+}
+.juegos-canarios-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.juegos-canarios-card {
+  border: 1px solid rgba(24, 32, 26, .24);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 22px 18px 18px;
+  position: relative;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.juegos-canarios-card:hover { box-shadow: 0 12px 24px rgba(20, 25, 21, .15); transform: translateY(-4px); }
+.juegos-canarios-card > span { font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.juegos-canarios-card h3 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 30px; line-height: .98; margin: 38px 0 12px; }
+.juegos-canarios-card p { color: rgba(24, 32, 26, .72); font-size: 14px; line-height: 1.4; margin: 0; }
+.juegos-canarios-card strong { font-size: 24px; margin-top: auto; }
+.juegos-card-active { background: #0e5643; color: #fff8ec; }
+.juegos-card-active p { color: rgba(255, 248, 236, .76); }
+.juegos-card-ocean { background: #b9d2cf; }
+.juegos-card-sand { background: #e5c77d; }
+.juegos-card-red { background: #d88964; }
+.juegos-card-ink { background: #c6c0b5; }
+.juegos-canarios-footnote { display: flex; gap: 28px; justify-content: space-between; margin-top: 18px; }
+.juegos-canarios-footnote span { color: rgba(24, 32, 26, .58); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+@media (max-width: 900px) {
+  .juegos-canarios-heading { grid-template-columns: 1fr; }
+  .juegos-canarios-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .juegos-canarios-band { padding: 64px 0; }
+  .juegos-canarios-grid { grid-template-columns: 1fr; }
+  .juegos-canarios-card { min-height: 170px; }
+  .juegos-canarios-card h3 { margin-top: 22px; }
+  .juegos-canarios-footnote { flex-direction: column; gap: 8px; }
+}
