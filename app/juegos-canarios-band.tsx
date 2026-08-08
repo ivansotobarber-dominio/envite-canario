@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { assetPath } from "../lib/site";
 
 const disciplines = [
   { name: "Envite Canario", status: "Activo", copy: "La primera mesa digital del proyecto.", href: "/app", tone: "juegos-card-active" },
@@ -20,6 +22,21 @@ export function JuegosCanariosBand() {
           <p>
             Una plataforma para investigar, jugar y conservar cinco practicas canarias. Envite abre la mesa; las demas lineas creceran con fuentes, voces y experiencias propias.
           </p>
+        </div>
+        <div className="juegos-canarios-feature">
+          <Image
+            src={assetPath("/images/juegos-canarios-retro-v01.png")}
+            alt="Ilustracion retro de juegos tradicionales canarios en un paisaje insular"
+            width={1680}
+            height={941}
+            unoptimized
+          />
+          <div>
+            <p className="eyebrow">Archivo jugable</p>
+            <h3>La cultura que no se practica se pierde. La que se adapta, permanece.</h3>
+            <p>Envite es la primera puerta. La nueva ventana ordena las cinco lineas, su estado y el compromiso de documentarlas antes de convertirlas en experiencias digitales.</p>
+            <Link className="button button-dark" href="/juegos-canarios">Abrir Juegos Canarios</Link>
+          </div>
         </div>
         <div className="juegos-canarios-grid">
           {disciplines.map((discipline) => (

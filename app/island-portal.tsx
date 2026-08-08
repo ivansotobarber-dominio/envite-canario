@@ -47,15 +47,19 @@ export function IslandPortal() {
                 key={island.slug}
                 type="button"
                 onClick={() => setActiveSlug(island.slug)}
+                onPointerEnter={() => setActiveSlug(island.slug)}
+                onFocus={() => setActiveSlug(island.slug)}
                 aria-pressed={active.slug === island.slug}
               >
                 <span className="island-number">{String(index + 1).padStart(2, "0")}</span>
+                <span className="island-signal">{island.theme}</span>
                 <strong>{island.name}</strong>
                 <img src={island.image} alt="" aria-hidden="true" />
                 <small>{island.landmark}</small>
               </button>
             ))}
             <span className="island-map-caption">Ocho islas, una mesa</span>
+            <span className="millo-caption">Arráyate un millo</span>
           </div>
           <div className="island-detail" aria-live="polite">
             <p className="eyebrow">{active.name}</p>

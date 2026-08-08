@@ -180,6 +180,7 @@ export default function Home() {
               alt="Representación conceptual de una colección física de Envite Canario"
               width={1680}
               height={945}
+              loading="eager"
               unoptimized
             />
           </div>

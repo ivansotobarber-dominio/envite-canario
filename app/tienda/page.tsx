@@ -39,6 +39,13 @@ const structuredData = {
   },
 };
 
+const collectionRoles = [
+  { code: "01", use: "Juego esencial" },
+  { code: "02", use: "Mesa compartida" },
+  { code: "03", use: "Ritual de partida" },
+  { code: "04", use: "Torneo popular" },
+];
+
 export default function ShopPage() {
   return (
     <>
@@ -94,6 +101,9 @@ export default function ShopPage() {
               {products.map((product, index) => (
                 <article className="product-card" key={product.slug}>
                   <div className={`product-crop product-crop-${index + 1}`}>
+                    <span className="product-number" aria-hidden="true">
+                      {collectionRoles[index]?.code}
+                    </span>
                     <Image
                       src={assetPath("/images/envite-shop-collection-v01.webp")}
                       alt=""
@@ -103,7 +113,10 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="product-card-body">
-                    <span className="product-status">{product.status}</span>
+                    <div className="product-card-meta">
+                      <span className="product-status">{product.status}</span>
+                      <span>{collectionRoles[index]?.use}</span>
+                    </div>
                     <p className="product-eyebrow">{product.eyebrow}</p>
                     <h2>{product.name}</h2>
                     <p>{product.summary}</p>

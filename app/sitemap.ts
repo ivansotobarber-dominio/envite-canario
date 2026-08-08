@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/torneos/envite-2-contra-2-tinajo-2026", priority: 0.85, changeFrequency: "daily" as const },
     { route: "/clasificacion", priority: 0.75, changeFrequency: "weekly" as const },
     { route: "/historia", priority: 0.85, changeFrequency: "monthly" as const },
+    { route: "/juegos-canarios", priority: 0.8, changeFrequency: "monthly" as const },
     { route: "/noticias", priority: 0.85, changeFrequency: "weekly" as const },
     { route: "/redes-sociales", priority: 0.55, changeFrequency: "monthly" as const },
     { route: "/privacidad", priority: 0.3, changeFrequency: "monthly" as const },

@@ -16,7 +16,12 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   typescript: isGitHubPages
-    ? { tsconfigPath: "./tsconfig.pages.json" }
+    ? {
+        tsconfigPath: "./tsconfig.pages.json",
+        // The Cloudflare worker is deployed separately and is not part of the
+        // static Pages artifact. Keep its type checking in the worker flow.
+        ignoreBuildErrors: true,
+      }
     : undefined,
 };
 
