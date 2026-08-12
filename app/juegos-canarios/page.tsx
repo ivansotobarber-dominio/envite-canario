@@ -23,7 +23,19 @@ export default function JuegosCanariosPage() {
       <SiteHeader />
       <main id="contenido-principal" tabIndex={-1}>
         <section className="juegos-retro-hero" aria-labelledby="juegos-title">
-          {/* Static local artwork avoids a runtime image-optimizer dependency on the public site. */}
+          <video
+            aria-hidden="true"
+            autoPlay
+            className="juegos-retro-video"
+            loop
+            muted
+            playsInline
+            poster={assetPath("/images/juegos-canarios-retro-telar-reference-v04.png")}
+            preload="metadata"
+          >
+            <source src={assetPath("/videos/juegos-canarios-retro-telar-loop-v01.mp4")} type="video/mp4" />
+          </video>
+          {/* Static local fallback avoids a runtime image-optimizer dependency on the public site. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt="Panorama ilustrado de juegos tradicionales canarios con borde de telar"
