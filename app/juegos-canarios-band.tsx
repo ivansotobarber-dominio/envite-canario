@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { assetPath } from "../lib/site";
 
 const disciplines = [
@@ -24,12 +23,12 @@ export function JuegosCanariosBand() {
           </p>
         </div>
         <div className="juegos-canarios-feature">
-          <Image
-            src={assetPath("/images/juegos-canarios-retro-v01.png")}
-            alt="Ilustracion retro de juegos tradicionales canarios en un paisaje insular"
-            width={1680}
-            height={941}
-            unoptimized
+          {/* Static local artwork avoids a runtime image-optimizer dependency on the public site. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt="Panorama ilustrado de juegos tradicionales canarios con borde de telar"
+            className="juegos-canarios-feature-image"
+            src={assetPath("/images/juegos-canarios-retro-telar-reference-v04.png")}
           />
           <div>
             <p className="eyebrow">Archivo jugable</p>

@@ -48,7 +48,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <section className="product-detail">
           <figure className="product-detail-media">
             <Image
-              src={assetPath("/images/envite-shop-collection-v01.webp")}
+              src={assetPath(
+                product.slug === "marcador-de-millos"
+                  ? "/images/envite-millos-counter-v01.png"
+                  : "/images/envite-shop-collection-v01.webp",
+              )}
               alt={`Representación conceptual de ${product.name}`}
               width={1680}
               height={945}
@@ -101,6 +105,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
           </div>
         </section>
+
+        {product.slug === "marcador-de-millos" ? (
+          <section className="millos-use-band" aria-labelledby="millos-use-title">
+            <div className="section-inner millos-use-grid">
+              <div>
+                <p className="eyebrow">Uso previsto</p>
+                <h2 id="millos-use-title">Que el tanteo se vea, se mueva y no se pierda.</h2>
+              </div>
+              <ol>
+                <li>
+                  <span>01</span>
+                  <p>Al cerrar un envite, se desplaza la corredera del equipo correspondiente.</p>
+                </li>
+                <li>
+                  <span>02</span>
+                  <p>Al terminar una mano, se registra en el carril independiente de manos cerradas.</p>
+                </li>
+                <li>
+                  <span>03</span>
+                  <p>La mesa conserva el estado sin millos sueltos, papel ni cuentas de memoria.</p>
+                </li>
+              </ol>
+            </div>
+          </section>
+        ) : null}
 
         <section className="product-return-band">
           <div className="section-inner product-return">

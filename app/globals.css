@@ -1256,6 +1256,94 @@ a {
   padding: 14px 8px 14px 0;
 }
 
+.millos-counter-spotlight {
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  margin: 28px 0 0;
+  padding-top: 18px;
+}
+
+.millos-counter-spotlight img {
+  aspect-ratio: 16 / 11;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.millos-counter-spotlight span {
+  color: var(--sun);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.millos-counter-spotlight strong {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.millos-counter-spotlight p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 8px 0 0;
+}
+
+/* A tangible preview of the physical counter: interaction explains the product. */
+.millo-counter-demo {
+  background: #1b3028;
+  border: 1px solid rgba(245, 212, 126, .55);
+  box-shadow: 10px 10px 0 rgba(8, 38, 31, .24);
+  color: #fff8e8;
+  margin: 28px 0;
+  padding: 18px;
+}
+
+.millo-demo-heading {
+  align-items: center;
+  display: flex;
+  font-size: 11px;
+  font-weight: 900;
+  justify-content: space-between;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.millo-demo-heading button,
+.millo-rail button {
+  background: #f4d47d;
+  border: 0;
+  color: #173326;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 900;
+  min-height: 36px;
+  padding: 8px 11px;
+}
+
+.millo-rails { display: grid; gap: 12px; margin: 18px 0 12px; }
+.millo-rail { align-items: center; display: grid; gap: 10px; grid-template-columns:70px 1fr auto; }
+.millo-rail strong { color: #f4d47d; font-size: 11px; }
+.millo-track { background: #382a1c; display: grid; gap: 4px; grid-template-columns: repeat(10, 1fr); padding: 6px; }
+.millo-track i { background: #74552f; display: block; height: 17px; transition: background .22s ease, transform .22s ease; }
+.millo-track i.is-marked { background: #f4c95e; box-shadow: inset 0 -3px 0 rgba(90, 54, 14, .35); transform: translateY(-2px); }
+.millo-counter-demo > p { color: rgba(255, 248, 232, .74); font-size: 12px; margin: 13px 0 0; }
+
+@media (max-width: 560px) {
+  .millo-rail { grid-template-columns:1fr auto; }
+  .millo-track { grid-column:1 / -1; grid-row:2; }
+}
+
 .culture-dual-band {
   background: #ece8dd;
 }
@@ -1548,6 +1636,18 @@ a {
   line-height: 1.56;
 }
 
+.product-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.product-card:last-child .product-crop {
+  min-height: 280px;
+}
+
+.product-card:last-child .product-crop img {
+  object-position: center;
+}
+
 .commerce-steps-band {
   background: var(--sun);
 }
@@ -1682,6 +1782,57 @@ a {
   font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-size: 36px;
   margin: 0 0 28px;
+}
+
+.millos-use-band {
+  background: var(--green-deep);
+  color: var(--white);
+}
+
+.millos-use-grid {
+  align-items: start;
+  display: grid;
+  gap: 70px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.millos-use-grid .eyebrow {
+  color: var(--sun);
+}
+
+.millos-use-grid h2 {
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  line-height: 1.02;
+  margin: 0;
+}
+
+.millos-use-grid ol {
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.millos-use-grid li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 46px 1fr;
+  padding: 18px 0;
+}
+
+.millos-use-grid li span {
+  color: var(--sun);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.millos-use-grid li p {
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.55;
+  margin: 0;
 }
 
 .spec-list {
@@ -2590,6 +2741,7 @@ a {
   .portal-hero,
   .product-detail,
   .product-spec-grid,
+  .millos-use-grid,
   .verification-layout,
   .history-intro,
   .app-access-hero,
@@ -2700,6 +2852,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .millos-counter-spotlight {
+    grid-template-columns: 112px minmax(0, 1fr);
+  }
+
   .home-tournament-layout,
   .product-return,
   .rules-cta {
@@ -2732,6 +2888,10 @@ a {
 
   .product-card {
     grid-template-columns: 1fr;
+  }
+
+  .product-card:last-child {
+    grid-column: auto;
   }
 
   .product-crop {
@@ -3624,6 +3784,25 @@ a {
 }
 
 .hero-inner { z-index: 3; }
+
+/* Motion assets remain decorative; still posters and reduced-motion fallbacks stay intact. */
+.hero-video {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+.juegos-retro-hero { background: #0f2b2e url("/images/juegos-canarios-retro-telar-reference-v04.png") center / cover no-repeat; }
+.juegos-retro-image { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; z-index: 0; }
+.juegos-canarios-feature { background: #132d2a url("/images/juegos-canarios-retro-telar-reference-v04.png") center / cover no-repeat; overflow: hidden; position: relative; }
+.juegos-canarios-feature-image { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; z-index: 0; }
+.juegos-canarios-feature > div { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
 
 .portal-card {
   min-height: 270px;

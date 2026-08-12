@@ -44,6 +44,7 @@ const collectionRoles = [
   { code: "02", use: "Mesa compartida" },
   { code: "03", use: "Ritual de partida" },
   { code: "04", use: "Torneo popular" },
+  { code: "05", use: "Tanteo visible" },
 ];
 
 export default function ShopPage() {
@@ -105,7 +106,11 @@ export default function ShopPage() {
                       {collectionRoles[index]?.code}
                     </span>
                     <Image
-                      src={assetPath("/images/envite-shop-collection-v01.webp")}
+                      src={assetPath(
+                        product.slug === "marcador-de-millos"
+                          ? "/images/envite-millos-counter-v01.png"
+                          : "/images/envite-shop-collection-v01.webp",
+                      )}
                       alt=""
                       width={1680}
                       height={945}

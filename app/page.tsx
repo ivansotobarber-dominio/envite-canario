@@ -6,6 +6,7 @@ import { SiteFooter, SiteHeader } from "./site-chrome";
 import { assetPath, siteUrl } from "../lib/site";
 import { IslandPortal } from "./island-portal";
 import { JuegosCanariosBand } from "./juegos-canarios-band";
+import { MilloCounterDemo } from "./millo-counter-demo";
 
 export const metadata: Metadata = {
   title: "Jugar, tienda, torneos y cultura",
@@ -111,6 +112,18 @@ export default function Home() {
             backgroundImage: `url("${assetPath("/images/envite-hero.webp")}")`,
           }}
         >
+          <video
+            className="hero-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster={assetPath("/images/envite-mesa-atlantica-reference-v02.png")}
+            aria-hidden="true"
+          >
+            <source src={assetPath("/videos/envite-mesa-atlantica-loop-v01.mp4")} type="video/mp4" />
+          </video>
           <div className="hero-shade" aria-hidden="true" />
           <div className="hero-inner">
             <p className="status-kicker">La mesa canaria, también en digital</p>
@@ -189,13 +202,33 @@ export default function Home() {
             <h2 id="home-shop-title">La primera colección empieza por jugar mejor.</h2>
             <p>
               La prioridad comercial será una baraja propia. Después vendrán el
-              Pack Mesa, el tapete y el material para organizar torneos populares.
-              El catálogo ya está abierto, aunque las compras todavía no.
+              Pack Mesa, el tapete, el marcador de millos y el material para
+              organizar torneos populares. El catálogo ya está abierto, aunque las
+              compras todavía no.
             </p>
+            <div className="millos-counter-spotlight">
+              <Image
+                src={assetPath("/images/envite-millos-counter-v01.png")}
+                alt="Prototipo conceptual de un marcador de millos de madera para Envite Canario"
+                width={1680}
+                height={945}
+                unoptimized
+              />
+              <div>
+                <span>05 · Tanteo de mesa</span>
+                <strong>Marcador de Millos</strong>
+                <p>
+                  Una pieza de correderas para arrayar envites y manos, sin millos
+                  sueltos ni cuentas de memoria.
+                </p>
+              </div>
+            </div>
+            <MilloCounterDemo />
             <ul className="shop-short-list">
               <li>Baraja Envite Canario</li>
               <li>Pack Mesa completo</li>
-              <li>Tapete y marcador</li>
+              <li>Tapete de juego</li>
+              <li>Marcador de Millos</li>
               <li>Kit Torneo Popular</li>
             </ul>
             <Link className="button button-dark" href="/tienda">

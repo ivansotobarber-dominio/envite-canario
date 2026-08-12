@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 type Island = {
@@ -54,7 +55,7 @@ export function IslandPortal() {
                 <span className="island-number">{String(index + 1).padStart(2, "0")}</span>
                 <span className="island-signal">{island.theme}</span>
                 <strong>{island.name}</strong>
-                <img src={island.image} alt="" aria-hidden="true" />
+                <Image src={island.image} alt="" aria-hidden="true" width={256} height={144} unoptimized />
                 <small>{island.landmark}</small>
               </button>
             ))}
@@ -65,7 +66,7 @@ export function IslandPortal() {
             <p className="eyebrow">{active.name}</p>
             <span className="island-detail-index">Puerta {String(islands.indexOf(active) + 1).padStart(2, "0")}</span>
             <figure className="island-detail-visual">
-              <img src={active.image} alt={`${active.name}: ${active.theme}`} />
+              <Image src={active.image} alt={`${active.name}: ${active.theme}`} width={960} height={480} unoptimized />
               <figcaption>{active.landmark}</figcaption>
             </figure>
             <h3>{active.theme}</h3>

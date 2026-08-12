@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "../../lib/site";
 import { SiteFooter, SiteHeader } from "../site-chrome";
@@ -24,13 +23,12 @@ export default function JuegosCanariosPage() {
       <SiteHeader />
       <main id="contenido-principal" tabIndex={-1}>
         <section className="juegos-retro-hero" aria-labelledby="juegos-title">
-          <Image
-            src={assetPath("/images/juegos-canarios-retro-v01.png")}
-            alt="Escena ilustrada de Envite, lucha, bola, salto del pastor y juego del palo en Canarias"
-            fill
-            priority
-            sizes="100vw"
-            unoptimized
+          {/* Static local artwork avoids a runtime image-optimizer dependency on the public site. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt="Panorama ilustrado de juegos tradicionales canarios con borde de telar"
+            className="juegos-retro-image"
+            src={assetPath("/images/juegos-canarios-retro-telar-reference-v04.png")}
           />
           <div className="juegos-retro-shade" aria-hidden="true" />
           <div className="section-inner juegos-retro-hero-content">

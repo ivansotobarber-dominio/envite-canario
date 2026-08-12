@@ -42,7 +42,7 @@ export const products: Product[] = [
     plannedContents: [
       "Baraja Envite Canario.",
       "Tapete de juego plegable.",
-      "Marcador físico de partidas.",
+      "Marcador de Millos para envites y manos.",
       "Guía de inicio rápido.",
     ],
     pending: [
@@ -92,6 +92,27 @@ export const products: Product[] = [
       "Definir modalidades y capacidades.",
       "Separar material físico y material descargable.",
       "Validar bases, protección de datos y publicación de resultados.",
+    ],
+  },
+  {
+    slug: "marcador-de-millos",
+    name: "Marcador de Millos",
+    eyebrow: "Tanteo de mesa",
+    status: "Prototipo conceptual",
+    summary:
+      "Un contador físico de correderas para arrayar los envites y dejar anotadas las manos sin tener millos sueltos sobre la mesa.",
+    audience: "Mesas domésticas, bares, asociaciones y organizadores de torneos populares.",
+    plannedContents: [
+      "Dos carriles de tanteo con millos grabados.",
+      "Correderas independientes para los dos equipos.",
+      "Registro separado de envites y manos cerradas.",
+      "Base estable para mesa, por validar con jugadores reales.",
+    ],
+    pending: [
+      "Validar el número de posiciones con la modalidad inicial de Envite.",
+      "Probar lectura y movimiento durante una partida completa.",
+      "Definir medidas, material y fabricación de una primera serie corta.",
+      "Cerrar nomenclatura, instrucciones y protección para envío.",
     ],
   },
 ];
