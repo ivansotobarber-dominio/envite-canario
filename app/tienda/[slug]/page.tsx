@@ -41,18 +41,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  const imageSrc =
+    product.slug === "marcador-de-millos"
+      ? "/images/envite-millos-counter-v01.png"
+      : "/images/envite-shop-collection-canaria-v03.webp";
+
   return (
     <>
       <SiteHeader />
       <main id="contenido-principal" tabIndex={-1} className="product-page">
-        <section className="product-detail">
+        <section className="product-detail shop-product-detail">
           <figure className="product-detail-media">
             <Image
-              src={assetPath(
-                product.slug === "marcador-de-millos"
-                  ? "/images/envite-millos-counter-v01.png"
-                  : "/images/envite-shop-collection-v01.webp",
-              )}
+              src={assetPath(imageSrc)}
               alt={`Representación conceptual de ${product.name}`}
               width={1680}
               height={945}
@@ -77,7 +78,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
               <div>
                 <dt>Última actualización</dt>
-                <dd>30 de julio de 2026.</dd>
+                <dd>13 de agosto de 2026.</dd>
               </div>
             </dl>
           </div>
@@ -103,6 +104,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 ))}
               </ul>
             </div>
+          </div>
+        </section>
+
+        <section className="shop-culture-band" aria-labelledby="shop-culture-title">
+          <div className="section-inner shop-culture-grid">
+            <div>
+              <p className="eyebrow">Criterio de diseño</p>
+              <h2 id="shop-culture-title">Canario porque se usa, no porque se decora.</h2>
+            </div>
+            <ul>
+              <li>Tela canaria como lenguaje gráfico de mesa, no como estampado gratuito.</li>
+              <li>Dorsos propios con pintadera, mar, barranco, mareta y lectura limpia.</li>
+              <li>Material pensado para guachinches, casas, asociaciones, colegios y torneos populares.</li>
+            </ul>
           </div>
         </section>
 

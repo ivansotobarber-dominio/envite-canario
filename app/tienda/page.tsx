@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "../content";
+import { MilloCounterDemo } from "../millo-counter-demo";
 import { SiteFooter, SiteHeader } from "../site-chrome";
 import { assetPath, siteUrl } from "../../lib/site";
 
 export const metadata: Metadata = {
   title: "Tienda",
   description:
-    "Catálogo en preparación de barajas, packs de mesa, tapetes y material para torneos de Envite Canario.",
+    "Catálogo en preparación de barajas, packs de mesa, tapetes, marcadores de millos y material para torneos de Envite Canario.",
   alternates: {
     canonical: "/tienda",
   },
   openGraph: {
     title: "Tienda de Envite Canario",
     description:
-      "Productos físicos para jugar, regalar y organizar mesas de Envite Canario.",
+      "Productos físicos para jugar, regalar y organizar mesas de Envite Canario con identidad canaria.",
     url: "/tienda",
     images: ["/images/envite-shop-collection-canaria-v03.webp"],
   },
@@ -47,6 +48,25 @@ const collectionRoles = [
   { code: "05", use: "Tanteo visible" },
 ];
 
+const ritualTokens = [
+  {
+    title: "Tela canaria",
+    text: "Franjas de romería aplicadas como tapete, borde y textura de mesa.",
+  },
+  {
+    title: "Dorso propio",
+    text: "Pintaderas, mar, barrancos, maretas y lectura rápida de cartas.",
+  },
+  {
+    title: "Arrayar millos",
+    text: "Tanteo visible para envites y manos, sin piezas sueltas ni dudas.",
+  },
+  {
+    title: "Torneo popular",
+    text: "Material para bares, fiestas, asociaciones y encuentros de pueblo.",
+  },
+];
+
 export default function ShopPage() {
   return (
     <>
@@ -56,15 +76,20 @@ export default function ShopPage() {
       />
       <SiteHeader />
       <main id="contenido-principal" tabIndex={-1}>
-        <section className="portal-hero shop-hero">
+        <section className="portal-hero shop-hero shop-hero-canario">
           <div className="portal-hero-copy">
-            <p className="eyebrow">Catálogo en preparación</p>
-            <h1>La mesa también se construye fuera de la pantalla.</h1>
+            <p className="eyebrow">Tienda en preparación</p>
+            <h1>La tienda nace en la mesa.</h1>
             <p>
-              Barajas, material de juego y herramientas para torneos. Mostramos
-              desde ahora qué estamos desarrollando, sin inventar precios, stock
-              ni fechas de entrega.
+              Primero productos que hagan jugar mejor: baraja, tapete, marcador de
+              millos y kit de torneo. Estética de guachinche, romería, puerto y
+              mesa familiar, pero con acabado de producto serio.
             </p>
+            <div className="shop-proof-line" aria-label="Principios de la tienda">
+              <span>Sin stock inventado</span>
+              <span>Sin precios falsos</span>
+              <span>Diseño validado en mesa real</span>
+            </div>
             <div className="hero-actions">
               <a className="button button-primary" href="#catalogo">
                 Ver catálogo
@@ -74,7 +99,7 @@ export default function ShopPage() {
               </Link>
             </div>
           </div>
-          <figure className="portal-hero-media">
+          <figure className="portal-hero-media shop-hero-media">
             <Image
               src={assetPath("/images/envite-shop-collection-canaria-v03.webp")}
               alt="Representación conceptual de una mesa de Envite Canario con baraja, tapete, marcador de millos, queso canario y vino"
@@ -87,20 +112,62 @@ export default function ShopPage() {
           </figure>
         </section>
 
-        <section className="catalog-band" id="catalogo" aria-labelledby="catalog-title">
+        <section className="shop-ritual-band" aria-label="Identidad de la tienda">
+          <div className="section-inner shop-ritual-grid">
+            {ritualTokens.map((token, index) => (
+              <article className="ritual-token" key={token.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h2>{token.title}</h2>
+                <p>{token.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="shop-featured-band" aria-labelledby="featured-shop-title">
+          <div className="section-inner shop-featured-grid">
+            <div className="shop-feature-copy">
+              <p className="eyebrow">Producto tractor</p>
+              <h2 id="featured-shop-title">Baraja, mantel y marcador: la mesa completa.</h2>
+              <p>
+                La colección tiene que vender una experiencia, no recuerdos sueltos.
+                Cada pieza debe tener una función en la partida y una razón cultural
+                clara: jugar, enseñar, contar puntos o montar torneo.
+              </p>
+              <div className="shop-textile-swatch" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <ul className="feature-list">
+                <li>Tapete con lenguaje de tela canaria, sin perder legibilidad.</li>
+                <li>Dorso de carta con identidad propia y lectura rápida.</li>
+                <li>Marcador físico para arrayar envites y manos.</li>
+                <li>Pack preparado para regalar, jugar y llevar a un torneo.</li>
+              </ul>
+            </div>
+            <div className="shop-feature-demo">
+              <MilloCounterDemo />
+            </div>
+          </div>
+        </section>
+
+        <section className="catalog-band shop-catalog-band" id="catalogo" aria-labelledby="catalog-title">
           <div className="section-inner">
             <div className="section-heading">
               <p className="eyebrow">Primera colección</p>
               <h2 id="catalog-title">Pocos productos, con una función clara.</h2>
               <p>
-                La baraja será el primer producto a validar. El Pack Mesa será la
-                experiencia completa y el Kit Torneo preparará el salto a
-                asociaciones, fiestas y eventos.
+                La baraja abre el catálogo. El Pack Mesa une lo físico y lo cultural.
+                El Kit Torneo prepara el salto a asociaciones, fiestas y eventos.
               </p>
             </div>
-            <div className="product-grid">
+            <div className="product-grid shop-product-grid">
               {products.map((product, index) => (
-                <article className="product-card" key={product.slug}>
+                <article className="product-card shop-product-card" key={product.slug}>
                   <div className={`product-crop product-crop-${index + 1}`}>
                     <span className="product-number" aria-hidden="true">
                       {collectionRoles[index]?.code}
@@ -135,7 +202,7 @@ export default function ShopPage() {
           </div>
         </section>
 
-        <section className="commerce-steps-band" aria-labelledby="commerce-title">
+        <section className="commerce-steps-band shop-commerce-band" aria-labelledby="commerce-title">
           <div className="section-inner">
             <div className="section-heading">
               <p className="eyebrow">Antes de vender</p>
