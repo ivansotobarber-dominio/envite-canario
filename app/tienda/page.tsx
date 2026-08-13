@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description:
       "Productos físicos para jugar, regalar y organizar mesas de Envite Canario.",
     url: "/tienda",
-    images: ["/images/envite-shop-collection-canaria-v02.webp"],
+    images: ["/images/envite-shop-collection-canaria-v03.webp"],
   },
 };
 
@@ -76,7 +76,7 @@ export default function ShopPage() {
           </div>
           <figure className="portal-hero-media">
             <Image
-              src={assetPath("/images/envite-shop-collection-canaria-v02.webp")}
+              src={assetPath("/images/envite-shop-collection-canaria-v03.webp")}
               alt="Representación conceptual de una mesa de Envite Canario con baraja, tapete, marcador de millos, queso canario y vino"
               width={1680}
               height={945}
@@ -109,7 +109,7 @@ export default function ShopPage() {
                       src={assetPath(
                         product.slug === "marcador-de-millos"
                           ? "/images/envite-millos-counter-v01.png"
-                          : "/images/envite-shop-collection-canaria-v02.webp",
+                          : "/images/envite-shop-collection-canaria-v03.webp",
                       )}
                       alt=""
                       width={1680}
