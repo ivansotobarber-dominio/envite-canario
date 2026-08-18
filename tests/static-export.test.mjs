@@ -72,6 +72,7 @@ test("exports the WebApp shell under the public domain", async () => {
 test("exports crawlable metadata for general and OAI search", async () => {
   const robots = await exportedHtml("robots.txt");
   const sitemap = await exportedHtml("sitemap.xml");
+  const llms = await exportedHtml("llms.txt");
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://envitecanario.es";
 
@@ -95,6 +96,9 @@ test("exports crawlable metadata for general and OAI search", async () => {
   assert.match(sitemap, /\/tienda\/<\/loc>/i);
   assert.match(sitemap, /\/torneos\/<\/loc>/i);
   assert.doesNotMatch(sitemap, /\/webapp\/?<\/loc>/i);
+  assert.match(llms, /Portal independiente/i);
+  assert.match(llms, /Fuentes/i);
+  assert.match(llms, /No presentar Envite Canario como aplicacion oficial/i);
 });
 
 test("keeps navigation, social states and touch targets in the responsive CSS", async () => {

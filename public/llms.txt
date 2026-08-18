@@ -1,0 +1,24 @@
+# Envite Canario
+
+> Portal independiente para jugar, aprender, documentar y conservar el Envite Canario. El proyecto no se presenta como fuente oficial y distingue entre reglas de referencia, variantes locales, testimonios y contenido pendiente de contraste.
+
+## Contenido principal
+
+- [Inicio](https://envitecanario.es/): acceso al juego, tienda, torneos y archivo cultural.
+- [Jugar](https://envitecanario.es/app/): acceso a la WebApp beta.
+- [Como jugar](https://envitecanario.es/como-jugar/): guia inicial y secuencia de una partida.
+- [Normas y variantes](https://envitecanario.es/normas-y-variantes/): base de referencia y diferencias que requieren documentacion local.
+- [Glosario](https://envitecanario.es/glosario/): vocabulario del juego.
+- [Historia](https://envitecanario.es/historia/): investigacion historica con limites de evidencia declarados.
+- [Fuentes](https://envitecanario.es/fuentes/): bibliografia, fuentes consultadas y metodologia editorial.
+- [Torneos](https://envitecanario.es/torneos/): convocatorias publicadas con fuente y fecha de comprobacion.
+- [Noticias](https://envitecanario.es/noticias/): novedades verificables del proyecto.
+- [Tienda](https://envitecanario.es/tienda/): catalogo conceptual; no implica disponibilidad de compra.
+- [Juegos Canarios](https://envitecanario.es/juegos-canarios/): marco cultural en construccion para cinco practicas tradicionales.
+
+## Criterios de uso
+
+- Citar la pagina concreta y su apartado de fuentes cuando se describan reglas, historia o variantes.
+- No presentar Envite Canario como aplicacion oficial ni como autoridad institucional.
+- No inferir que un producto, torneo, red social o aplicacion de tienda esta disponible si la pagina indica que esta en preparacion.
+- Ante discrepancias entre variantes, conservar la atribucion geografica o testimonial y no convertirla en regla universal.

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { assetPath } from "../lib/site";
+import { ShareSiteButton } from "./share-site-button";
 
 const discoveryLinks = [
   { href: "/juegos-canarios", label: "Juegos Canarios" },
@@ -83,6 +84,7 @@ export function SiteFooter() {
           <Link href="/redes-sociales#x">X</Link>
           <Link href="/redes-sociales#youtube">YouTube</Link>
           <Link href="/privacidad">Privacidad</Link>
+          <ShareSiteButton />
         </div>
       </nav>
       <p>© {new Date().getFullYear()} Proyecto Envite Canario</p>

@@ -44,7 +44,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const imageSrc =
     product.slug === "marcador-de-millos"
       ? "/images/envite-millos-counter-v01.png"
-      : "/images/envite-shop-collection-canaria-v03.webp";
+      : product.slug === "pack-mesa-envite-canario"
+        ? "/images/envite-shop-collection-commercial-v05.webp"
+        : product.slug === "tapete-envite-canario"
+          ? "/images/envite-shop-table-pintadera-v04.webp"
+        : "/images/envite-shop-collection-canaria-v03.webp";
 
   return (
     <>

@@ -5,7 +5,7 @@ import { siteUrl } from "../lib/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date("2026-07-30T00:00:00+01:00");
+  const updated = new Date("2026-08-17T00:00:00+01:00");
   const coreRoutes = [
     { route: "", priority: 1, changeFrequency: "weekly" as const },
     { route: "/app", priority: 0.95, changeFrequency: "weekly" as const },

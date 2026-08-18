@@ -189,10 +189,10 @@ export default function Home() {
         <section className="home-shop-band" aria-labelledby="home-shop-title">
           <div className="home-shop-image">
             <Image
-              src={assetPath("/images/envite-shop-collection-v01.webp")}
-              alt="Representación conceptual de una colección física de Envite Canario"
-              width={1680}
-              height={945}
+              src={assetPath("/images/envite-shop-collection-commercial-v05.webp")}
+              alt="Colección física conceptual de Envite Canario con cajas, mazos precintados, camiseta, tapete funcional y marcador de millos"
+              width={1672}
+              height={941}
               loading="eager"
               unoptimized
             />
@@ -201,10 +201,10 @@ export default function Home() {
             <p className="eyebrow">Tienda Envite Canario</p>
             <h2 id="home-shop-title">La primera colección empieza por jugar mejor.</h2>
             <p>
-              La prioridad comercial será una baraja propia. Después vendrán el
-              Pack Mesa, el tapete, el marcador de millos y el material para
-              organizar torneos populares. El catálogo ya está abierto, aunque las
-              compras todavía no.
+              La colección comienza por una mesa completa: baraja con dorso de
+              Pintadera de Guía, tapete de Envite, marcador de millos y material
+              para organizar torneos populares. El catálogo ya está abierto,
+              aunque las compras todavía no.
             </p>
             <div className="millos-counter-spotlight">
               <Image

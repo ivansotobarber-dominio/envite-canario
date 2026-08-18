@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description:
       "Productos físicos para jugar, regalar y organizar mesas de Envite Canario con identidad canaria.",
     url: "/tienda",
-    images: ["/images/envite-shop-collection-canaria-v03.webp"],
+    images: ["/images/envite-shop-collection-commercial-v05.webp"],
   },
 };
 
@@ -81,9 +81,10 @@ export default function ShopPage() {
             <p className="eyebrow">Tienda en preparación</p>
             <h1>La tienda nace en la mesa.</h1>
             <p>
-              Primero productos que hagan jugar mejor: baraja, tapete, marcador de
-              millos y kit de torneo. Estética de guachinche, romería, puerto y
-              mesa familiar, pero con acabado de producto serio.
+              Una mesa de Envite reconocible: dorsos con Pintadera de Guía,
+              tapete funcional con tejido canario, marcador de millos y kit de
+              torneo. Cultura material de guachinche y romería con acabado de
+              producto serio.
             </p>
             <div className="shop-proof-line" aria-label="Principios de la tienda">
               <span>Sin stock inventado</span>
@@ -101,10 +102,10 @@ export default function ShopPage() {
           </div>
           <figure className="portal-hero-media shop-hero-media">
             <Image
-              src={assetPath("/images/envite-shop-collection-canaria-v03.webp")}
-              alt="Representación conceptual de una mesa de Envite Canario con baraja, tapete, marcador de millos, queso canario y vino"
-              width={1680}
-              height={945}
+              src={assetPath("/images/envite-shop-collection-commercial-v05.webp")}
+              alt="Colección física conceptual de Envite Canario con cajas, mazos precintados, camiseta, tapete funcional y marcador de millos"
+              width={1672}
+              height={941}
               priority
               unoptimized
             />
@@ -176,7 +177,11 @@ export default function ShopPage() {
                       src={assetPath(
                         product.slug === "marcador-de-millos"
                           ? "/images/envite-millos-counter-v01.png"
-                          : "/images/envite-shop-collection-canaria-v03.webp",
+                          : product.slug === "pack-mesa-envite-canario"
+                            ? "/images/envite-shop-collection-commercial-v05.webp"
+                            : product.slug === "tapete-envite-canario"
+                              ? "/images/envite-shop-table-pintadera-v04.webp"
+                            : "/images/envite-shop-collection-canaria-v03.webp",
                       )}
                       alt=""
                       width={1680}
