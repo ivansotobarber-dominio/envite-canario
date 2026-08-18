@@ -376,7 +376,7 @@ a {
 
 .check-list li::before {
   color: var(--green);
-  content: "âœ“";
+  content: "\2713";
   font-weight: 900;
   left: 2px;
   position: absolute;
@@ -1857,7 +1857,7 @@ a {
 
 .spec-list li::before {
   color: var(--green);
-  content: "â—†";
+  content: "\25C6";
   font-size: 10px;
   left: 2px;
   position: absolute;
@@ -3029,7 +3029,7 @@ a {
 }
 
 .nav-more > summary::after {
-  content: "â†“";
+  content: "\2193";
   font-size: 12px;
   margin-left: 8px;
 }
@@ -3041,7 +3041,7 @@ a {
 }
 
 .nav-more[open] > summary::after {
-  content: "â†‘";
+  content: "\2191";
 }
 
 .nav-menu {
