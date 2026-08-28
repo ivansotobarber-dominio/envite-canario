@@ -13,6 +13,7 @@ const discoveryLinks = [
   { href: "/historia", label: "Historia" },
   { href: "/noticias", label: "Noticias" },
   { href: "/fuentes", label: "Fuentes" },
+  { href: "/contacto", label: "Contacto" },
   { href: "/redes-sociales", label: "Redes" },
 ];
 
@@ -78,12 +79,15 @@ export function SiteFooter() {
         <div className="footer-column">
           <strong>Comunidad</strong>
           <Link href="/tienda">Tienda</Link>
+          <Link href="/contacto">Contacto</Link>
+          <a href="mailto:envido@envitecanario.es">envido@envitecanario.es</a>
           <Link href="/redes-sociales">Redes</Link>
           <Link href="/redes-sociales#instagram">Instagram</Link>
           <Link href="/redes-sociales#facebook">Facebook</Link>
           <Link href="/redes-sociales#x">X</Link>
           <Link href="/redes-sociales#youtube">YouTube</Link>
           <Link href="/privacidad">Privacidad</Link>
+          <Link href="/cookies">Cookies</Link>
           <ShareSiteButton />
         </div>
       </nav>

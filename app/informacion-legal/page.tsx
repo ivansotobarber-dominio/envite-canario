@@ -26,6 +26,18 @@ export default function LegalInformationPage() {
           </p>
 
           <section>
+            <h2>Identificación del titular</h2>
+            <p><strong>Titular:</strong> Iván Soto Barber.</p>
+            <p><strong>Denominación del proyecto:</strong> Envite Canario.</p>
+            <p><strong>NIF:</strong> pendiente.</p>
+            <p><strong>Domicilio:</strong> pendiente.</p>
+            <p>
+              <strong>Correo de contacto:</strong>{" "}
+              <a href="mailto:envido@envitecanario.es">envido@envitecanario.es</a>.
+            </p>
+          </section>
+
+          <section>
             <h2>Finalidad</h2>
             <p>
               Facilitar el acceso a la WebApp, publicar el catálogo en

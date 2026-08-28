@@ -25,6 +25,17 @@ export default function PrivacyPage() {
           </p>
 
           <section>
+            <h2>Responsable</h2>
+            <p><strong>Responsable:</strong> Iván Soto Barber, titular del proyecto Envite Canario.</p>
+            <p><strong>NIF:</strong> pendiente.</p>
+            <p><strong>Domicilio:</strong> pendiente.</p>
+            <p>
+              Para consultas sobre privacidad o ejercicio de derechos puede escribir a{" "}
+              <a href="mailto:envido@envitecanario.es">envido@envitecanario.es</a>.
+            </p>
+          </section>
+
+          <section>
             <h2>Qué datos solicitamos</h2>
             <p>
               Ninguno. La web no pide nombre, correo, teléfono, ubicación,
@@ -64,10 +75,13 @@ export default function PrivacyPage() {
             <h2>Cambios futuros</h2>
             <p>
               Antes de activar formularios, analítica, compras, cuentas o juego
-              online, esta información se ampliará con responsable, finalidades,
-              base jurídica, proveedores, conservación y ejercicio de derechos.
+              online, esta información se ampliará con las finalidades, la base
+              jurídica, los proveedores, los plazos de conservación y los derechos
+              que correspondan a cada tratamiento.
             </p>
           </section>
+
+          <p><Link href="/cookies">Cookies y tecnologías similares</Link></p>
 
           <Link className="text-link" href="/">
             Volver al inicio

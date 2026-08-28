@@ -21,7 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: "/juegos-canarios", priority: 0.8, changeFrequency: "monthly" as const },
     { route: "/noticias", priority: 0.85, changeFrequency: "weekly" as const },
     { route: "/redes-sociales", priority: 0.55, changeFrequency: "monthly" as const },
+    { route: "/contacto", priority: 0.5, changeFrequency: "monthly" as const },
     { route: "/privacidad", priority: 0.3, changeFrequency: "monthly" as const },
+    { route: "/cookies", priority: 0.25, changeFrequency: "yearly" as const },
     { route: "/informacion-legal", priority: 0.3, changeFrequency: "monthly" as const },
   ];
 
