@@ -45,6 +45,13 @@ const structuredData = {
 
 const portalLinks = [
   {
+    label: "ARCHIPIÉLAGO",
+    title: "Wiki de Juegos Canarios",
+    copy: "Un atlas documentado para descubrir juegos, deportes y prácticas tradicionales de Canarias.",
+    href: "/juegos",
+    accent: "portal-card-ocean",
+  },
+  {
     label: "JUGAR",
     title: "WebApp",
     copy: "Entra directamente a la mesa y prueba la beta pública.",

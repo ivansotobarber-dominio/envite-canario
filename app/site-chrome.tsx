@@ -4,7 +4,7 @@ import { assetPath } from "../lib/site";
 import { ShareSiteButton } from "./share-site-button";
 
 const discoveryLinks = [
-  { href: "/juegos-canarios", label: "Juegos Canarios" },
+  { href: "/juegos", label: "Wiki de Juegos Canarios" },
   { href: "/torneos", label: "Torneos" },
   { href: "/clasificacion", label: "Clasificación" },
   { href: "/como-jugar", label: "Cómo jugar" },
@@ -70,7 +70,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-column">
           <strong>Cultura y proyecto</strong>
-          <Link href="/juegos-canarios">Juegos Canarios</Link>
+          <Link href="/juegos">Wiki de Juegos Canarios</Link>
           <Link href="/historia">Historia</Link>
           <Link href="/noticias">Noticias</Link>
           <Link href="/fuentes">Fuentes</Link>

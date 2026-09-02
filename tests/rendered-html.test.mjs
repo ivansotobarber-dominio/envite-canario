@@ -41,6 +41,8 @@ const publicRoutes = [
   "/normas-y-variantes",
   "/glosario",
   "/historia",
+  "/juegos",
+  "/juegos/envite-canario",
   "/fuentes",
   "/noticias",
   "/redes-sociales",
@@ -57,6 +59,7 @@ const navigationRoutes = [
   "/normas-y-variantes",
   "/glosario",
   "/historia",
+  "/juegos",
   "/noticias",
   "/fuentes",
   "/redes-sociales",
@@ -145,6 +148,21 @@ test("connects rules and history to guides, glossary and the source index", asyn
     assert.match(html, /href="\/glosario"/i);
     assert.match(html, /href="\/fuentes"/i);
   }
+});
+
+test("exposes a sourced and searchable Wiki without promoting future videogames", async () => {
+  const wiki = await htmlFor("/juegos");
+  const envite = await htmlFor("/juegos/envite-canario");
+
+  assert.match(wiki, /Wiki de Juegos Canarios/i);
+  assert.match(wiki, /Chapolín Canario/i);
+  assert.match(wiki, /Juegos infantiles/i);
+  assert.match(wiki, /Sin ficha publica|Sin ficha pública/i);
+  assert.match(wiki, /Nombre incorporado como pista documental/i);
+  assert.match(envite, /Como se juega|Cómo se juega/i);
+  assert.match(envite, /Fuentes y limites|Fuentes y límites/i);
+  assert.match(envite, /application\/ld\+json/i);
+  assert.doesNotMatch(wiki, /Próximo videojuego|Futuro videojuego|En desarrollo como juego/i);
 });
 
 test("offers a direct WebApp route and truthful store-download states", async () => {
