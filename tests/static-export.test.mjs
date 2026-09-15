@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 async function exportedHtml(path) {
@@ -120,4 +122,31 @@ test("keeps navigation, social states and touch targets in the responsive CSS", 
     css,
     /envite-(?:hero|welcome|community-guachinche-v01)\.png/i,
   );
+});
+
+test("exports flat RSC prefetch names for static and dynamic routes", async () => {
+  for (const file of [
+    "tienda/__next.tienda.__PAGE__.txt",
+    "app/__next.app.__PAGE__.txt",
+    "noticias/tienda-envite-canario-en-preparacion/__next.noticias.$d$slug.txt",
+    "noticias/tienda-envite-canario-en-preparacion/__next.noticias.$d$slug.__PAGE__.txt",
+  ]) {
+    assert.ok((await exportedHtml(file)).length > 0, file);
+  }
+});
+
+test("every Windows nested RSC export has a byte-identical flat alias", async () => {
+  async function visit(directory, root, parts = []) {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const source = join(directory, entry.name);
+      if (entry.isDirectory()) {
+        if (root) await visit(source, root, [...parts, entry.name]);
+        else if (entry.name.startsWith("__next.")) await visit(source, directory, [entry.name]);
+        else await visit(source);
+      } else if (root && entry.name.endsWith(".txt")) {
+        assert.deepEqual(await readFile(source), await readFile(join(root, [...parts, entry.name].join("."))));
+      }
+    }
+  }
+  await visit(fileURLToPath(new URL("../out", import.meta.url)));
 });

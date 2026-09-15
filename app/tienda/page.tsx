@@ -59,7 +59,7 @@ const ritualTokens = [
   },
   {
     title: "Arrayar millos",
-    text: "Tanteo visible para envites y manos, sin piezas sueltas ni dudas.",
+    text: "Tanteo de piedras, chicos y partidos, sin piezas sueltas.",
   },
   {
     title: "Torneo popular",
@@ -146,7 +146,7 @@ export default function ShopPage() {
               <ul className="feature-list">
                 <li>Tapete con lenguaje de tela canaria, sin perder legibilidad.</li>
                 <li>Dorso de carta con identidad propia y lectura rápida.</li>
-                <li>Marcador físico para arrayar envites y manos.</li>
+                <li>Marcador físico de piedras, chicos y partidos.</li>
                 <li>Pack preparado para regalar, jugar y llevar a un torneo.</li>
               </ul>
             </div>
