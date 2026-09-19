@@ -47,10 +47,22 @@ export default function CookiesPage() {
           </section>
 
           <section>
+            <h2>Formulario de contacto</h2>
+            <p>
+              El formulario envía la consulta a Formspree cuando se pulsa Enviar.
+              No carga un widget ni un CAPTCHA del proveedor. La comprobación
+              histórica de agosto no es una auditoría de esta integración.
+              Un envío de formulario no
+              implica por sí solo consentimiento para cookies no necesarias.
+              Consulte la <Link href="/privacidad">información de privacidad</Link>.
+            </p>
+          </section>
+
+          <section>
             <h2>Cambios futuros</h2>
             <p>
               Antes de activar analítica, publicidad, contenidos embebidos,
-              formularios conectados u otras tecnologías no estrictamente
+              nuevas integraciones u otras tecnologías no estrictamente
               necesarias, se actualizará esta información y se solicitará
               consentimiento cuando corresponda.
             </p>

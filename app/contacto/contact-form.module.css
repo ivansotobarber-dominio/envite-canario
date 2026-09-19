@@ -1,0 +1,10 @@
+.form { max-width: 640px; scroll-margin-top: 96px; }
+.form fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 16px; min-width: 0; }
+.form legend { font-weight: 700; margin-bottom: 16px; }
+.form label { display: grid; gap: 6px; }
+.form input:not([type="checkbox"]), .form textarea { width: 100%; min-height: 44px; padding: 10px; border: 1px solid var(--line); background: var(--white); color: var(--ink); font: inherit; }
+.form .consent { display: flex; align-items: center; gap: 10px; }
+.consent input { width: 20px; height: 20px; flex-shrink: 0; }
+.form button { min-height: 44px; }
+.form fieldset:disabled { opacity: .65; }
+.form [role="status"] { min-height: 3em; }

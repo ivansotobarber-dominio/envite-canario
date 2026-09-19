@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../site-chrome";
+import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -32,10 +33,11 @@ export default function ContactPage() {
               </a>
             </p>
             <p>
-              El enlace abre su aplicación de correo. Esta web todavía no envía
-              formularios ni almacena datos personales.
+              El enlace abre su aplicación de correo; no envía ningún mensaje automáticamente.
             </p>
           </section>
+
+          <ContactForm />
 
           <section>
             <h2>Para ayudarnos a responder</h2>
