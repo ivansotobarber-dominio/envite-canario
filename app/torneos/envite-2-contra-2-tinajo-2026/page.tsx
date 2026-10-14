@@ -10,7 +10,7 @@ const sourceUrl =
 export const metadata: Metadata = {
   title: "Envite 2 contra 2 en Tinajo, 1 de agosto de 2026",
   description:
-    "Ficha verificada del Envite 2 contra 2 de las Fiestas de San Roque 2026 en Tinajo, Lanzarote: fecha, hora, lugar, organización y fuente municipal.",
+    "Convocatoria archivada del Envite 2 contra 2 de San Roque 2026 en Tinajo: fecha, lugar y fuente municipal, sin resultados ni inscripción vigente acreditados.",
   alternates: {
     canonical: eventPath,
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "article",
     title: "Envite 2 contra 2 en Tinajo, 1 de agosto de 2026",
     description:
-      "Datos verificados del campeonato popular de Envite de las Fiestas de San Roque en Tinajo.",
+      "Convocatoria archivada de San Roque en Tinajo, sin confirmar celebración ni resultados.",
     url: eventPath,
     images: [assetPath("/images/envite-tournament-harbour-v01.webp")],
   },
@@ -36,7 +36,6 @@ export default function TinajoTournamentPage() {
         description:
           "Campeonato popular de Envite 2 contra 2 incluido en la programación de las Fiestas de San Roque de Tinajo.",
         startDate: "2026-08-01T20:00:00+01:00",
-        eventStatus: "https://schema.org/EventScheduled",
         eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
         image: `${siteUrl}${assetPath("/images/envite-tournament-harbour-v01.webp")}`,
         location: {
@@ -95,7 +94,7 @@ export default function TinajoTournamentPage() {
           <nav className="news-meta" aria-label="Ruta del torneo">
             <Link href="/torneos">Torneos</Link>
             <span>Lanzarote</span>
-            <span>Confirmado</span>
+            <span>Archivo de convocatoria</span>
           </nav>
           <h1>Envite 2 contra 2 en Tinajo</h1>
           <p className="article-lead">
@@ -103,6 +102,10 @@ export default function TinajoTournamentPage() {
             con fecha, hora, lugar y organización publicados por el Ayuntamiento.
           </p>
           <div className="article-body">
+            <p className="beta-warning">
+              Fecha pasada. Se conserva la convocatoria documentada, sin afirmar
+              que se celebrara ni acreditar resultados o inscripciones abiertas.
+            </p>
             <h2>Datos verificados</h2>
             <p>
               <strong>Fecha:</strong> sábado 1 de agosto de 2026, a las 20:00.
@@ -118,12 +121,12 @@ export default function TinajoTournamentPage() {
               <strong>Organización:</strong> Club de Lucha Tinajo con la
               Concejalía de Festejos del Ayuntamiento de Tinajo.
             </p>
-            <h2>Información todavía no publicada</h2>
+            <h2>Datos no recogidos en la convocatoria consultada</h2>
             <p>
               La fuente consultada no detalla en esta ficha precio, sistema de
               inscripción, bases completas ni premios. Envite Canario no los
-              completa mediante estimaciones. Para participar, debe comprobarse
-              la información directamente con la organización.
+              completa mediante estimaciones. Se conserva el alcance de la
+              consulta de julio, sin ofrecer inscripciones actuales.
             </p>
           </div>
           <aside className="article-source-note">
@@ -134,7 +137,7 @@ export default function TinajoTournamentPage() {
             </a>
           </aside>
           <Link className="text-link" href="/torneos">
-            Volver al calendario de torneos
+            Volver al archivo de convocatorias
           </Link>
         </article>
       </main>

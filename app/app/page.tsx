@@ -23,20 +23,25 @@ export default function AppAccessPage() {
             <p className="eyebrow">Jugar ahora</p>
             <h1>Entra directamente a la mesa.</h1>
             <p>
-              La WebApp es la vía pública de prueba. Funciona en navegador y
-              permite revisar la mesa, las cartas y el flujo local mientras
-              preparamos las versiones instaladas.
+              La WebApp beta permite probar mesas de 2, 3, 4, 5 y 6 jugadores por equipo
+              contra jugadores automáticos, sin multijugador online. Es una beta
+              independiente, no un reglamento oficial.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="/webapp/">
                 Abrir WebApp
               </a>
-              <Link className="button button-quiet" href="/normas-y-variantes">
-                Ver normas y variantes
+              <Link className="button button-quiet" href="/como-jugar">
+                Aprender antes de jugar
               </Link>
             </div>
             <p className="beta-warning">
-              Beta pública de prueba. El motor, la interfaz y las reglas siguen en validación.
+              Beta pública de prueba. Las señas de 4 contra 4 siguen pendientes
+              y no se pueden enviar. Las convenciones de señas de 5 contra 5 y
+              6 contra 6 son provisionales, no un catálogo tradicional validado.
+              La validación experta y las pruebas físicas en iPhone y Safari
+              siguen pendientes. Las frases de mesa son textos fijos locales,
+              no un chat online.
             </p>
           </div>
           <figure className="app-access-media">
@@ -68,7 +73,7 @@ export default function AppAccessPage() {
                 <div>
                   <p className="product-status">Disponible</p>
                   <h3>WebApp</h3>
-                  <p>Acceso inmediato desde Safari, Chrome, Edge o Firefox.</p>
+                  <p>Acceso desde el navegador. La validación en iPhone y Safari sigue pendiente.</p>
                 </div>
                 <a className="button button-dark" href="/webapp/">
                   Abrir ahora

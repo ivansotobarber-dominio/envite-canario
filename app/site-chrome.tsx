@@ -32,6 +32,7 @@ export function SiteHeader() {
         <span>Envite Canario</span>
       </Link>
       <nav className="primary-nav" aria-label="Navegación principal">
+        <Link className="nav-learn" href="/como-jugar">Aprender</Link>
         <Link className="nav-play" href="/app">Jugar</Link>
         <Link className="nav-cta" href="/tienda">Tienda</Link>
         <details className="nav-more">

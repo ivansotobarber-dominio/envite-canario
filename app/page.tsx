@@ -9,7 +9,7 @@ import { JuegosCanariosBand } from "./juegos-canarios-band";
 import { MilloCounterDemo } from "./millo-counter-demo";
 
 export const metadata: Metadata = {
-  title: "Jugar, tienda, torneos y cultura",
+  title: "Envite Canario: aprender, jugar y cultura de mesa",
   description:
     "Portal independiente de Envite Canario: WebApp, tienda, torneos populares, clasificación, normas, variantes, glosario, fuentes, noticias e historia.",
   alternates: {
@@ -144,8 +144,8 @@ export default function Home() {
               <Link className="button button-primary" href="/app">
                 Jugar en la WebApp
               </Link>
-              <Link className="button button-quiet" href="/tienda">
-                Entrar en la tienda
+              <Link className="button button-quiet" href="/como-jugar">
+                Aprender a jugar
               </Link>
             </div>
           </div>
@@ -288,7 +288,7 @@ export default function Home() {
                 width={1672}
                 height={941}
                 sizes="(max-width: 900px) 100vw, 54vw"
-                priority
+                loading="lazy"
                 unoptimized
               />
               <figcaption>
@@ -344,15 +344,16 @@ export default function Home() {
         <section className="home-tournament-band" aria-labelledby="home-tournament-title">
           <div className="section-inner home-tournament-layout">
             <div>
-              <p className="eyebrow">Próxima convocatoria verificada</p>
+              <p className="eyebrow">Archivo de convocatorias</p>
               <h2 id="home-tournament-title">Envite 2 contra 2 en Tinajo.</h2>
               <p>
                 1 de agosto de 2026, a las 20:00, en los ventorrillos de las
                 Fiestas de San Roque. Fuente: Ayuntamiento de Tinajo.
+                Fecha pasada; esta ficha no acredita resultados ni inscripciones abiertas.
               </p>
             </div>
             <Link className="button button-primary" href="/torneos">
-              Ver calendario
+              Ver convocatorias archivadas
             </Link>
           </div>
         </section>

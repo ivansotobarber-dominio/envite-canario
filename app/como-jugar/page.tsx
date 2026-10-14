@@ -38,14 +38,14 @@ const provisionalFlow = [
       "Para esta guía se parte de cuatro personas, dos por equipo, sentadas de forma alterna. Es una base didáctica provisional, no una declaración de modalidad universal.",
   },
   {
-    title: "Baraja, corta y muestra la vira",
+    title: "Baraja y corta",
     copy:
-      "Se utiliza baraja española. Tras barajar y cortar, una carta visible determina el palo de lo virado en las variantes descritas por las fuentes operativas consultadas.",
+      "Preparen la baraja española y acuerden modalidad, jerarquía, tanteo en millos y señas antes de repartir.",
   },
   {
-    title: "Reparte tres cartas",
+    title: "Reparte tres cartas y descubre la vira",
     copy:
-      "Las descripciones detalladas consultadas coinciden en repartir tres cartas a cada participante. El sentido y la persona que abre deben fijarse según la variante acordada.",
+      "Según Fournier, se reparten tres cartas por persona en sentido antihorario. La siguiente carta queda boca arriba como vira; abre quien está a la derecha de quien repartió. Esta es la referencia del ejemplo, no una regla universal.",
   },
   {
     title: "Lee tu mano y coordina el equipo",
@@ -83,7 +83,7 @@ const faqs = [
   {
     question: "¿Qué es la vira?",
     answer:
-      "Es la carta que queda visible tras el corte o el reparto en las versiones consultadas. Su palo determina las cartas de lo virado, cuya fuerza depende de la modalidad.",
+      "En la explicación de Fournier es la carta que se descubre después del reparto. Su palo determina las cartas de lo virado, cuya fuerza depende de la modalidad.",
   },
   {
     question: "¿Cómo sé qué carta gana una baza?",

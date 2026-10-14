@@ -50,9 +50,15 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--sun);
+  outline: 3px solid var(--green-deep);
   outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--white);
 }
+
+main [id] { scroll-margin-top: 100px; }
+.primary-nav .nav-learn { display: inline-flex; align-items: center; min-height: 44px; }
+.nav-more .nav-menu { max-height: calc(100dvh - 100px); overflow-y: auto; }
+.history-lines a { overflow-wrap: anywhere; }
 
 .site-header {
   align-items: center;
@@ -853,7 +859,7 @@ a {
     width: 38px;
   }
 
-  .site-header nav a:not(.nav-cta) {
+  .site-header nav a:not(.nav-cta):not(.nav-learn):not(.nav-play) {
     display: none;
   }
 
@@ -2742,7 +2748,7 @@ a {
 }
 
 @media (max-width: 1120px) {
-  .site-header nav a:not(.nav-play):not(.nav-cta):not(:nth-last-child(-n + 2)) {
+  .site-header nav a:not(.nav-play):not(.nav-cta):not(.nav-learn):not(:nth-last-child(-n + 2)) {
     display: none;
   }
 
@@ -2827,9 +2833,11 @@ a {
     gap: 7px;
   }
 
-  .site-header nav a:not(.nav-play):not(.nav-cta) {
+  .site-header nav a:not(.nav-play):not(.nav-cta):not(.nav-learn) {
     display: none;
   }
+
+  .site-header nav > .nav-cta { display: none; }
 
   .site-header .nav-play,
   .site-header .nav-cta {

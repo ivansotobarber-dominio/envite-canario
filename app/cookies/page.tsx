@@ -24,8 +24,7 @@ export default function CookiesPage() {
           <section>
             <h2>Responsable</h2>
             <p><strong>Responsable:</strong> Iván Soto Barber, titular del proyecto Envite Canario.</p>
-            <p><strong>NIF:</strong> pendiente.</p>
-            <p><strong>Domicilio:</strong> pendiente.</p>
+            <p>Identificación completa en la <Link href="/informacion-legal">información del titular</Link>.</p>
             <p><strong>Contacto:</strong> <a href="mailto:envido@envitecanario.es">envido@envitecanario.es</a>.</p>
           </section>
 
@@ -49,11 +48,11 @@ export default function CookiesPage() {
           <section>
             <h2>Formulario de contacto</h2>
             <p>
-              El formulario envía la consulta a Formspree cuando se pulsa Enviar.
-              No carga un widget ni un CAPTCHA del proveedor. La comprobación
-              histórica de agosto no es una auditoría de esta integración.
-              Un envío de formulario no
-              implica por sí solo consentimiento para cookies no necesarias.
+              Los formularios están temporalmente desactivados. El contacto se
+              realiza mediante un enlace de correo, que abre su aplicación y no
+              envía mensajes automáticamente. No se carga un widget ni un CAPTCHA
+              de formularios. La comprobación histórica de agosto no constituye
+              una auditoría de la WebApp actual.
               Consulte la <Link href="/privacidad">información de privacidad</Link>.
             </p>
           </section>
