@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex, nofollow"><title>Bola Canaria · beta experimental</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="sources/style.css"><link rel="stylesheet" href="../beta.css"></head>
+<body class="beta-bola">
+<header><div class="brand"><h1>Bola Canaria</h1><small>BETA EXPERIMENTAL</small></div><div class="scoreboard"><span class="team human">TÚ <b id="score-t">0</b></span><span id="hand">1 / 3</span><span class="team ai"><b id="score-i">0</b> IA</span></div><button id="reset" aria-label="Reiniciar partida" title="Reiniciar partida" data-icon="rotate-ccw"></button></header>
+<main>
+<section class="statusbar" aria-label="Estado de la mano"><strong id="turn">Tu lanzamiento</strong><span id="point">Sin punto</span><span id="stock">Tú 3 · IA 3</span><button id="measure" aria-label="Medir distancias" title="Medir distancias" aria-pressed="false" data-icon="ruler"></button></section>
+<section class="arena" aria-label="Cancha"><canvas id="court" width="1200" height="300" aria-label="Cancha cenital. La preparación también está disponible en los controles inferiores."></canvas><div class="courtlabels"><span id="direction">SALIDA →</span><span>20 m nominales · geometría experimental</span><span>BOLICHE</span></div></section>
+<div id="measurements" aria-live="polite" hidden></div>
+<section class="preparation" aria-label="Preparación táctica">
+<div class="modes" role="group" aria-label="Tipo de lanzamiento"><button data-mode="arrime" aria-pressed="true" title="Arrime: velocidad 4 a 26"><i data-icon="target"></i><span>Arrime</span></button><button data-mode="impacto" aria-pressed="false" title="Impacto rasante: velocidad 8 a 32, sin vuelo"><i data-icon="crosshair"></i><span>Impacto</span></button></div>
+<label>Posición <output id="lateral-out">150</output><input id="lateral" aria-label="Posición lateral" type="range" min="45" max="255" value="150" step="1"></label>
+<label>Ángulo <output id="angle-out">0°</output><input id="angle" aria-label="Ángulo" type="range" min="-18" max="18" value="0" step="0.1"></label>
+<label>Potencia <output id="power-out">70%</output><input id="power" aria-label="Potencia" type="range" min="0" max="100" value="70" step="1"></label>
+<div class="shotbuttons"><button id="cancel" title="Cancelar preparación" aria-label="Cancelar preparación" data-icon="undo-2"></button><button id="launch" class="primary" title="Lanzar" aria-label="Lanzar"><i data-icon="move-right"></i></button><button id="resign" title="Renunciar a las bolas restantes" aria-label="Renunciar a las bolas restantes" data-icon="flag" disabled></button></div>
+</section>
+<section class="resolution" aria-label="Resolución"><div><strong id="headline" aria-live="polite">Tu lanzamiento</strong><p id="detail">Arrime · 19,4 u/paso</p></div><button id="continue" hidden><span>Continuar</span><i data-icon="arrow-right"></i></button></section>
+</main>
+<footer><span>3 manos · 3 bolas por lado</span><span id="history">Sin manos cerradas</span><span>Sin validación deportiva</span></footer>
+<dialog id="reset-dialog"><form method="dialog"><h2>¿Reiniciar partida?</h2><p>Se pierde esta partida local.</p><div><button value="cancel">Cancelar</button><button id="confirm-reset" value="reset" class="primary">Reiniciar</button></div></form></dialog>
+<script src="vendor/matter-0.20.0.min.js"></script><script src="vendor/icons.js"></script><script src="sources/rules.js"></script><script src="sources/physics.js"></script><script src="sources/app.js"></script>
+<nav class="beta-publication" aria-label="Portal y privacidad"><span>Beta experimental, sin homologación deportiva. Sin cuentas ni telemetría.</span><div><a href="/juegos/#betas">Volver a Juegos Canarios</a><a href="/privacidad/">Privacidad</a></div></nav>
+</body></html>

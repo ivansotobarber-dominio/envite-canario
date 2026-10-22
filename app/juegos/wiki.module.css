@@ -416,6 +416,19 @@
   line-height: 1.6;
 }
 
+.betaLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.betaLinks a {
+  min-height: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .breadcrumbs,
 .entryHeader,
 .quickFacts,

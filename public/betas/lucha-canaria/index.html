@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="../beta.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Lucha Canaria · Terrero experimental</title>
+  <link rel="stylesheet" href="sources/style.css">
+  <link rel="stylesheet" href="sources/encounter.css">
+  <script defer src="sources/engine.js"></script>
+  <script defer src="sources/icons.js"></script>
+  <script defer src="sources/encounter.js"></script>
+  <script defer src="sources/app.js"></script>
+</head>
+<body>
+<main class="game">
+  <header class="topbar">
+    <h1>Lucha Canaria<span>Terrero experimental</span></h1>
+    <a class="mode-link" id="mode-link" href="encuentro.html">Encuentro</a>
+    <div class="format"><label for="target">Objetivo <small>(reinicia)</small></label><select id="target"><option value="1">1 caída</option><option value="2" selected>2 caídas</option></select></div>
+    <button id="reset" class="icon-button" aria-label="Reiniciar combate" title="Reiniciar combate"><span data-icon="rotate-ccw" aria-hidden="true"></span></button>
+  </header>
+  <section class="scoreboard" aria-label="Marcador y recursos">
+    <div class="fighter-stats red"><strong>ROJO <span>· Tú</span></strong><div class="resources"><label>Energía <output id="player-energy-text"></output><meter id="player-energy" min="0" max="10" aria-label="Tu energía"></meter></label><label>Equilibrio <output id="player-balance-text"></output><meter id="player-balance" min="0" max="10" aria-label="Tu equilibrio"></meter></label></div></div>
+    <div class="score"><div><span id="player-score">0</span><span aria-hidden="true">:</span><span id="enemy-score">0</span></div><small id="turn">INTERCAMBIO 1</small></div>
+    <div class="fighter-stats blue"><strong>AZUL <span>· Rival</span></strong><div class="resources"><label>Energía <output id="enemy-energy-text"></output><meter id="enemy-energy" min="0" max="10" aria-label="Energía rival"></meter></label><label>Equilibrio <output id="enemy-balance-text"></output><meter id="enemy-balance" min="0" max="10" aria-label="Equilibrio rival"></meter></label></div></div>
+  </section>
+  <section class="arena" aria-label="Terrero y luchadores">
+    <div class="intent"><span id="intent-label">INTENCIÓN DEL AZUL</span><strong id="intent"></strong></div>
+    <svg id="scene" viewBox="0 0 1000 360" role="img" aria-labelledby="scene-title scene-desc">
+      <title id="scene-title">Dos luchadores en el terrero</title><desc id="scene-desc">Representación artística abstracta del intercambio, no demostración técnica.</desc>
+      <defs>
+        <pattern id="sand" width="29" height="23" patternUnits="userSpaceOnUse"><circle cx="4" cy="6" r="1" fill="#bebdb5"/><path d="M17 17h3" stroke="#c9c6bc"/></pattern>
+        <g id="body" stroke="#26332d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M-47 62Q-90 105-106 165L-71 170-23 99" fill="#c58d6b"/>
+          <path d="M-8 82Q29 115 55 162L85 150Q62 87 20 59" fill="#dba580"/>
+          <path d="M-108 159l-17 11q-4 12 11 12h45l-2-19" fill="#c58d6b"/>
+          <path d="M56 157l9 18h47q8-9-4-13l-28-15" fill="#dba580"/>
+          <path d="M-51 40l-11 45 39 23 17-21 28 7 16-46" fill="#f8f8ef"/>
+          <path d="M-45-65Q-86-31-53 48L25 57Q47 15 22-49Z" fill="currentColor"/>
+          <path d="M-20-64l-2-20 36-7 10 43" fill="#dba580"/>
+          <path d="M-35-105q-7-41 26-45 32-3 40 29l-3 28-18 19-33-8Z" fill="#dba580"/>
+          <path d="M-36-116q-8-43 30-43 30 0 37 29l-23-8-12 17Z" fill="#26332d"/>
+          <path d="M15-112h5M7-91l11 2" fill="none"/>
+          <path d="M-43-47Q-25-23 4-8L55-43 69-24Q44 17 10 23-28 17-62-15" fill="#c58d6b"/>
+          <path d="M13-38Q51-27 71-49l24-21 12 15Q80-12 54-4L21-8" fill="#dba580"/>
+          <path d="M-43 38l65 8" stroke="#f8f8ef" stroke-width="7"/>
+        </g>
+      </defs>
+      <path d="M0 0h1000v360H0Z" fill="#edf1ef"/>
+      <path d="M0 92Q500-30 1000 92M0 112Q500-10 1000 112" fill="none" stroke="#cdd5ce" stroke-width="3"/>
+      <ellipse cx="500" cy="261" rx="475" ry="96" fill="#dedbd2"/>
+      <ellipse cx="500" cy="261" rx="475" ry="96" fill="url(#sand)"/>
+      <path d="M500 165a475 96 0 0 0 0 192" fill="none" stroke="#ba3443" stroke-width="9"/>
+      <path d="M500 165a475 96 0 0 1 0 192" fill="none" stroke="#285bc0" stroke-width="9"/>
+      <ellipse cx="390" cy="291" rx="115" ry="12" fill="#b4b5ab"/>
+      <ellipse cx="610" cy="291" rx="115" ry="12" fill="#b4b5ab"/>
+      <g transform="translate(403 155) scale(.78)"><g id="red-figure" class="figure" color="#ba3443"><use href="#body"/></g></g>
+      <g transform="translate(597 155) scale(-.78 .78)"><g id="blue-figure" class="figure" color="#285bc0"><use href="#body"/></g></g>
+    </svg>
+    <div class="pose-labels"><span id="red-pose">En agarre</span><span id="blue-pose">En agarre</span></div>
+  </section>
+  <section class="exchange" aria-label="Resultado del intercambio"><div id="feedback" role="status" aria-live="polite" aria-atomic="true"><strong id="headline"></strong><p id="detail"></p></div><button id="continue" hidden></button></section>
+  <section id="actions" class="actions" aria-label="Decisiones tácticas"></section>
+  <footer>Mañas, costes y poses: abstracción lúdica. No es un simulador oficial ni una guía técnica.</footer>
+</main>
+<section id="match-summary" class="match-summary" hidden><h1>Resultado del encuentro</h1><p id="match-score"></p><ol id="match-results"></ol><nav><button id="repeat-encounter">Repetir encuentro</button><a href="encuentro.html">Nueva convocatoria</a><a href="index.html">Duelo libre</a></nav></section>
+<nav class="beta-publication" aria-label="Portal y privacidad"><span>Beta experimental, sin homologación deportiva. Sin cuentas ni telemetría.</span><div><a href="/juegos/#betas">Volver a Juegos Canarios</a><a href="/privacidad/">Privacidad</a></div></nav>
+</body>
+</html>

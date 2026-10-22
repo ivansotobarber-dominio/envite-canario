@@ -1,0 +1,47 @@
+.mode-link { font-size: 12px; color: #23624c; }
+.preparation { height: 100vh; height: 100dvh; display: grid; grid-template-rows: 72px minmax(0,1fr) 74px; padding: 0 24px; }
+.preparation header { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #c6d1c8; }
+.preparation a, .match-summary a { color: #23624c; }
+.selection { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; align-content: center; }
+h2 { font-size: 17px; margin: 10px 0; }
+.roster { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.person { display: flex; align-items: center; gap: 8px; padding: 10px; background: #fff; border: 1px solid #b4c2b8; border-radius: 6px; min-height: 80px; cursor: pointer; }
+.person:has(:checked) { border-color: #ba3443; }
+.person input { width: 20px; height: 20px; accent-color: #ba3443; flex-shrink: 0; }
+.person span span, .person strong, .person small { display: block; font-size: 12px; line-height: 1.4; }
+.person strong { font-size: 14px; }
+.planning select { width: 100%; }
+#order { margin: 0 0 12px; padding-left: 24px; }
+#order li { padding-left: 4px; height: 48px; }
+#order li span { display: inline-block; width: 90px; }
+#order button { min-width: 44px; height: 44px; border: 1px solid #b4c2b8; border-radius: 4px; background: white; margin-left: 5px; font-size: 20px; }
+#start, #repeat-encounter { min-height: 44px; background: #23624c; color: white; border: 0; border-radius: 6px; padding: 8px 16px; }
+.planning p { font-size: 12px; margin: 8px 0; }
+.match-summary { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; padding: 24px; }
+.match-summary h1 { margin: 0; }
+.match-summary ol { padding-left: 24px; line-height: 2; }
+.match-summary nav { display: flex; align-items: center; gap: 20px; }
+.team-game .topbar h1 { font-size: 16px; }
+.team-game .scoreboard strong { font-size: 13px; }
+@media (max-height:500px) and (orientation:landscape) {
+ .preparation { grid-template-rows: 44px minmax(0,1fr) 53px; padding: 0 16px; }
+ .preparation h1 { font-size: 18px; } .preparation h1 span { display: inline; }
+ .selection { gap: 16px; } h2 { font-size: 14px; margin: 3px 0; }
+ .person { padding: 5px; min-height: 72px; } .person strong { font-size: 12px; }
+ #order { margin-bottom: 2px; } #order li { height: 44px; }
+ .planning label { font-size: 12px; } .planning p { margin: 2px 0; }
+ .preparation footer { font-size: 12px; padding: 2px; }
+}
+@media (orientation:portrait) and (max-width:850px) {
+ .preparation { padding: 0 12px; grid-template-rows: 66px minmax(0,1fr) 100px; }
+ .preparation h1 { font-size: 18px; } .preparation h1 span { font-size: 12px; }
+ .selection { grid-template-columns: 1fr; gap: 8px; align-content: start; }
+ .person { padding: 6px; min-height: 84px; } .person strong { font-size: 12px; }
+ #order { display: flex; list-style: none; padding: 0; gap: 8px; margin-bottom: 8px; }
+ #order li { height: 68px; padding: 0; flex: 1; } #order li span { display: block; width: auto; }
+ #order button { margin: 0 3px 0 0; }
+ .planning p { margin: 4px 0; } .preparation footer { font-size: 12px; padding: 4px 0; }
+ .mode-link { font-size: 12px; } .topbar { gap: 5px; } .topbar h1 { font-size: 16px; }
+ .team-game .topbar h1 { font-size: 14px; } .team-game .scoreboard strong { font-size: 12px; }
+ .match-summary nav { flex-wrap: wrap; justify-content: center; }
+}
