@@ -17,7 +17,15 @@
       const li = document.createElement('li'), name = document.createElement('span'); name.textContent = M.get(id).name; li.append(name);
       for (const [offset, arrow, verb] of [[-1, '↑', 'Subir'], [1, '↓', 'Bajar']]) {
         const b = document.createElement('button'); b.textContent = arrow; b.setAttribute('aria-label', verb + ' ' + M.get(id).name); b.title = verb + ' ' + M.get(id).name; b.disabled = i + offset < 0 || i + offset >= order.length;
-        b.addEventListener('click', () => { order = M.move(order, id, offset); render(); document.querySelector('input[value="' + id + '"]').focus(); }); li.append(b);
+        b.addEventListener('click', () => {
+          order = M.move(order, id, offset); render();
+          const position = order.indexOf(id);
+          const [, up, down] = $('order').children[position].children;
+          const preferred = offset === -1 ? up : down;
+          // At either end, keep focus on the same wrestler's enabled direction.
+          (preferred.disabled ? (offset === -1 ? down : up) : preferred).focus();
+          $('selection-status').textContent = M.get(id).name + ': salida ' + (position + 1) + ' de ' + order.length + '.';
+        }); li.append(b);
       }
       $('order').append(li);
     });

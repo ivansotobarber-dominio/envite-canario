@@ -5,6 +5,8 @@
     $('headline').textContent = 'Error: faltan recursos locales'; $('launch').disabled = true; return;
   }
   document.querySelectorAll('[data-icon]').forEach(e => e.innerHTML = BolaIcons[e.dataset.icon] || '');
+  // Native ranges expose the value; outputs must not announce it a second time.
+  document.querySelectorAll('output').forEach(e => e.setAttribute('aria-hidden', 'true'));
   const R = BolaRules, P = BolaPhysics, canvas = $('court'), ctx = canvas.getContext('2d');
   let game = new R.Game(), mode = 'arrime', measuring = false, sim = null, frame = 0;
   const name = t => t === 0 ? 'Tú' : 'IA';
@@ -22,6 +24,9 @@
     $('reset').disabled = game.phase === 'moving'; $('measure').disabled = game.phase === 'moving';
     $('resign').disabled = !game.canResign();
     $('lateral-out').textContent = Math.round(+$('lateral').value); $('angle-out').textContent = `${Number($('angle').value).toFixed(1)}°`; $('power-out').textContent = `${$('power').value}%`;
+    $('lateral').setAttribute('aria-valuetext', `${$('lateral').value} unidades de cancha`);
+    $('angle').setAttribute('aria-valuetext', `${Number($('angle').value).toFixed(1).replace('.', ',')} grados`);
+    $('power').setAttribute('aria-valuetext', `${$('power').value}%`);
     $('measure').setAttribute('aria-pressed', measuring); $('measurements').hidden = !measuring;
     $('measurements').textContent = point.distances.map(p => `${p.id}: ${(p.distance / 60).toFixed(2)} m`).join(' · ') || 'Sin bolas válidas para medir';
     $('history').textContent = game.history.map(h => `M${h.hand} ${h.reason === 'null' ? 'nula' : h.leader === null ? 'empate' : name(h.leader) + ' +' + h.points}`).join(' · ') || 'Sin manos cerradas';

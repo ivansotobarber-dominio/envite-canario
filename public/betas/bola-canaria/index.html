@@ -14,10 +14,10 @@
 <label>Potencia <output id="power-out">70%</output><input id="power" aria-label="Potencia" type="range" min="0" max="100" value="70" step="1"></label>
 <div class="shotbuttons"><button id="cancel" title="Cancelar preparación" aria-label="Cancelar preparación" data-icon="undo-2"></button><button id="launch" class="primary" title="Lanzar" aria-label="Lanzar"><i data-icon="move-right"></i></button><button id="resign" title="Renunciar a las bolas restantes" aria-label="Renunciar a las bolas restantes" data-icon="flag" disabled></button></div>
 </section>
-<section class="resolution" aria-label="Resolución"><div><strong id="headline" aria-live="polite">Tu lanzamiento</strong><p id="detail">Arrime · 19,4 u/paso</p></div><button id="continue" hidden><span>Continuar</span><i data-icon="arrow-right"></i></button></section>
+<section class="resolution" aria-label="Resolución"><div role="status" aria-live="polite" aria-atomic="true"><strong id="headline">Tu lanzamiento</strong><p id="detail">Arrime · 19,4 u/paso</p></div><button id="continue" aria-describedby="detail point stock" hidden><span>Continuar</span><i data-icon="arrow-right"></i></button></section>
 </main>
 <footer><span>3 manos · 3 bolas por lado</span><span id="history">Sin manos cerradas</span><span>Sin validación deportiva</span></footer>
-<dialog id="reset-dialog"><form method="dialog"><h2>¿Reiniciar partida?</h2><p>Se pierde esta partida local.</p><div><button value="cancel">Cancelar</button><button id="confirm-reset" value="reset" class="primary">Reiniciar</button></div></form></dialog>
-<script src="vendor/matter-0.20.0.min.js"></script><script src="vendor/icons.js"></script><script src="sources/rules.js"></script><script src="sources/physics.js"></script><script src="sources/app.js"></script>
+<dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-warning"><form method="dialog"><h2 id="reset-title">¿Reiniciar partida?</h2><p id="reset-warning">Se pierde esta partida local.</p><div><button value="cancel">Cancelar</button><button id="confirm-reset" value="reset" class="primary">Reiniciar</button></div></form></dialog>
+<script src="vendor/matter-0.20.0.min.js"></script><script src="vendor/icons.js"></script><script src="sources/rules.js"></script><script src="sources/physics.js"></script><script src="sources/app.js?v=20261023-6cb068b7"></script>
 <nav class="beta-publication" aria-label="Portal y privacidad"><span>Beta experimental, sin homologación deportiva. Sin cuentas ni telemetría.</span><div><a href="/juegos/#betas">Volver a Juegos Canarios</a><a href="/privacidad/">Privacidad</a></div></nav>
 </body></html>
