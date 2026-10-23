@@ -34,6 +34,12 @@
 
   <title>Envite Canario Beta</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    /* Invisible leaf labels must not intercept clicks outside their hitbox. */
+    flt-semantics[role="button"][flt-tappable]:not([aria-owns]) {
+      overflow: hidden !important;
+    }
+  </style>
 </head>
 <body>
   <script>
