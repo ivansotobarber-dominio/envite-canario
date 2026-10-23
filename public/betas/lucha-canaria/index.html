@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="/favicon.svg">
-  <link rel="stylesheet" href="../beta.css">
+  <link rel="stylesheet" href="../beta.css?v=20261023-wrapper1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Lucha Canaria · Terrero experimental</title>
   <link rel="stylesheet" href="sources/style.css">
@@ -22,7 +22,7 @@
     <a class="mode-link" id="mode-link" href="encuentro.html">Encuentro</a>
     <div class="format"><label for="target">Objetivo <small>(reinicia)</small></label><select id="target"><option value="1">1 caída</option><option value="2" selected>2 caídas</option></select></div>
     <button id="reset" class="icon-button" aria-label="Reiniciar combate" title="Reiniciar combate"><span data-icon="rotate-ccw" aria-hidden="true"></span></button>
-  </header>
+  <details class="beta-menu"><summary aria-label="Portal y privacidad" title="Portal y privacidad">&#8942;</summary><nav class="beta-publication" aria-label="Portal y privacidad"><span>Beta experimental, sin homologación deportiva. Sin cuentas ni telemetría.</span><div><a href="/juegos/#betas">Volver a Juegos Canarios</a><a href="/privacidad/">Privacidad</a></div></nav></details></header>
   <section class="scoreboard" aria-label="Marcador y recursos">
     <div class="fighter-stats red"><strong>ROJO <span>· Tú</span></strong><div class="resources"><label>Energía <output id="player-energy-text"></output><meter id="player-energy" min="0" max="10" aria-label="Tu energía"></meter></label><label>Equilibrio <output id="player-balance-text"></output><meter id="player-balance" min="0" max="10" aria-label="Tu equilibrio"></meter></label></div></div>
     <div class="score"><div><span id="player-score">0</span><span aria-hidden="true">:</span><span id="enemy-score">0</span></div><small id="turn">INTERCAMBIO 1</small></div>
@@ -68,6 +68,6 @@
   <footer>Mañas, costes y poses: abstracción lúdica. No es un simulador oficial ni una guía técnica.</footer>
 </main>
 <section id="match-summary" class="match-summary" hidden><h1>Resultado del encuentro</h1><p id="match-score"></p><ol id="match-results"></ol><nav><button id="repeat-encounter">Repetir encuentro</button><a href="encuentro.html">Nueva convocatoria</a><a href="index.html">Duelo libre</a></nav></section>
-<nav class="beta-publication" aria-label="Portal y privacidad"><span>Beta experimental, sin homologación deportiva. Sin cuentas ni telemetría.</span><div><a href="/juegos/#betas">Volver a Juegos Canarios</a><a href="/privacidad/">Privacidad</a></div></nav>
+
 </body>
 </html>

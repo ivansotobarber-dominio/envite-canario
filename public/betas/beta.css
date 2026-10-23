@@ -17,4 +17,10 @@
 .beta-publication div { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 .beta-publication a { display: inline-flex; align-items: center; min-height: 44px; color: #23624c; }
 .beta-publication a:focus-visible { outline: 3px solid #ba3443; outline-offset: 2px; }
-body.beta-bola { height: calc(100vh + 88px); height: calc(100dvh + 88px); }
+body.beta-bola { height: 100vh; height: 100dvh; }
+
+.beta-menu { position: relative; flex: 0 0 44px; font-size: 14px; }
+.beta-menu > summary { list-style: none; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #899c94; border-radius: 4px; font-size: 22px; }
+.beta-menu > summary::-webkit-details-marker { display: none; }
+.beta-menu > summary:focus-visible { outline: 3px solid #ba3443; outline-offset: 2px; }
+.beta-menu > .beta-publication { position: absolute; right: 0; top: 100%; width: 280px; max-width: calc(100vw - 32px); z-index: 30; border: 1px solid #899c94; }
