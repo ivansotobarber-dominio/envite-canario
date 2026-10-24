@@ -23,4 +23,12 @@ body.beta-bola { height: 100vh; height: 100dvh; }
 .beta-menu > summary { list-style: none; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #899c94; border-radius: 4px; font-size: 22px; }
 .beta-menu > summary::-webkit-details-marker { display: none; }
 .beta-menu > summary:focus-visible { outline: 3px solid #ba3443; outline-offset: 2px; }
+.beta-bola header :is(button, summary):focus-visible,
+.beta-lucha header :is(button, select, summary):focus-visible { outline-offset: -3px; }
 .beta-menu > .beta-publication { position: absolute; right: 0; top: 100%; width: 280px; max-width: calc(100vw - 32px); z-index: 30; border: 1px solid #899c94; }
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Paint the separator inside the 44px row without reducing its content box. */
+  .beta-lucha .topbar { border-bottom: 0; box-shadow: inset 0 -1px 0 #ced8d0; }
+  .beta-lucha .preparation > header { border-bottom: 0; box-shadow: inset 0 -1px 0 #c6d1c8; }
+}
