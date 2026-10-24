@@ -5,6 +5,10 @@ import { SiteFooter, SiteHeader } from "../../site-chrome";
 import { getGameBySlug, getRelatedGames, publishedGames } from "../data";
 import type { CanarianGame, SourcedText } from "../types";
 import styles from "../wiki.module.css";
+import Image from "next/image";
+import { assetPath } from "../../../lib/site";
+import { playableBetas } from "../betas";
+import betaStyles from "../beta-access.module.css";
 
 type GamePageProps = { params: Promise<{ slug: string }> };
 
@@ -16,13 +20,14 @@ export async function generateMetadata({ params }: GamePageProps): Promise<Metad
   const { slug } = await params;
   const game = getGameBySlug(slug);
   if (!game) return {};
+  const beta = playableBetas.find((item) => item.slug === slug);
   const titleParts = [game.name];
   if (game.howToPlay || game.rules.length) titleParts.push("cómo se juega");
   if (game.history.length) titleParts.push("historia");
   titleParts.push("fuentes");
   return {
-    title: titleParts.join(", "),
-    description: game.summary,
+    title: beta ? `${game.name}: beta experimental y ficha cultural` : titleParts.join(", "),
+    description: beta ? `${beta.summary} Beta experimental, sin homologación deportiva. Consulta también la ficha cultural.` : game.summary,
     alternates: { canonical: `/juegos/${game.slug}` },
     openGraph: { type: "article", url: `/juegos/${game.slug}`, title: game.name, description: game.summary, modifiedTime: game.reviewedAt },
   };
@@ -57,6 +62,7 @@ export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
   const game = getGameBySlug(slug);
   if (!game) notFound();
+  const beta = playableBetas.find((item) => item.slug === slug);
   const related = getRelatedGames(game);
   const structuredData = {
     "@context": "https://schema.org",
@@ -77,12 +83,13 @@ export default async function GamePage({ params }: GamePageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <SiteHeader />
-      <main id="contenido-principal" tabIndex={-1} className={styles.entryPage}>
+      <main id="contenido-principal" tabIndex={-1} className={`${styles.entryPage} ${beta ? betaStyles.entry : ""}`}>
         <nav className={styles.breadcrumbs} aria-label="Migas de pan"><Link href="/">Inicio</Link><span aria-hidden="true">/</span><Link href="/juegos">Wiki</Link><span aria-hidden="true">/</span><span aria-current="page">{game.name}</span></nav>
         <header className={styles.entryHeader}>
-          <div className={styles.entryTitle}><p className={styles.kicker}>{game.category}</p><h1>{game.name}</h1>{game.aliases.length > 0 && <p className={styles.entryAliases}>También se conoce como {game.aliases.join(", ")}.</p>}<p className={styles.entryLead}>{game.summary}<Citation game={game} ids={game.sources.map((item) => item.id)} /></p>{game.playableHref && <Link className={styles.playLink} href={game.playableHref}>Jugar en la WebApp <span aria-hidden="true">→</span></Link>}</div>
+          <div className={styles.entryTitle}><p className={styles.kicker}>{game.category}</p><h1>{game.name}</h1>{game.aliases.length > 0 && <p className={styles.entryAliases}>También se conoce como {game.aliases.join(", ")}.</p>}<p className={styles.entryLead}>{game.summary}<Citation game={game} ids={game.sources.map((item) => item.id)} /></p>{beta && <div className={betaStyles.access}><p>{beta.summary}</p><div className={betaStyles.actions}><a className="button button-dark" href={assetPath(beta.href)}>Jugar a la beta</a><Link href="/juegos/">Volver a Juegos Canarios</Link></div><small>Beta experimental, sin homologación ni validación deportiva. Sin cuentas ni telemetría. La experiencia digital no sustituye las reglas del deporte.</small></div>}{game.playableHref && <Link className={styles.playLink} href={game.playableHref}>Jugar en la WebApp <span aria-hidden="true">→</span></Link>}</div>
           <div className={styles.revisionStamp}><span>{statusLabel(game)}</span><strong>Revisada el {game.reviewedLabel}</strong><p>La ausencia de un dato indica que todavía no existe evidencia suficiente para publicarlo.</p></div>
         </header>
+        {beta && <figure className={betaStyles.preview}><Image src={assetPath(beta.image)} alt={beta.alt} width={844} height={390} unoptimized /><figcaption>Captura real de la beta experimental. No representa una competición oficial.</figcaption></figure>}
         <dl className={styles.quickFacts}>
           <div><dt>Categoría</dt><dd>{game.category}</dd></div>
           {game.playerCount && <div><dt>Participantes</dt><dd>{game.playerCount}<Citation game={game} ids={game.sources.map((item) => item.id)} /></dd></div>}

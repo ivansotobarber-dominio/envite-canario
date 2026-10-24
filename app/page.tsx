@@ -7,6 +7,8 @@ import { assetPath, siteUrl } from "../lib/site";
 import { IslandPortal } from "./island-portal";
 import { JuegosCanariosBand } from "./juegos-canarios-band";
 import { MilloCounterDemo } from "./millo-counter-demo";
+import { playableBetas } from "./juegos/betas";
+import betaStyles from "./juegos/beta-access.module.css";
 
 export const metadata: Metadata = {
   title: "Envite Canario: aprender, jugar y cultura de mesa",
@@ -112,6 +114,14 @@ export default function Home() {
       <SiteHeader />
 
       <main id="contenido-principal" tabIndex={-1}>
+        <section className={betaStyles.discovery} aria-label="Más juegos disponibles">
+          <div className={betaStyles.discoveryInner}>
+            <p>También puedes jugar · Betas experimentales</p>
+            <nav aria-label="Lucha y Bola Canaria">
+              {playableBetas.map((beta) => <Link key={beta.slug} href={`/juegos/${beta.slug}/`}>{beta.name} <span aria-hidden="true">&nbsp;→</span></Link>)}
+            </nav>
+          </div>
+        </section>
         <section
           className="hero"
           aria-labelledby="hero-title"

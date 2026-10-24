@@ -150,3 +150,23 @@ test("every Windows nested RSC export has a byte-identical flat alias", async ()
   }
   await visit(fileURLToPath(new URL("../out", import.meta.url)));
 });
+
+test("discovers Lucha and Bola through indexable pages without changing beta indexation", async () => {
+  const home = await exportedHtml("index.html");
+  const hub = await exportedHtml("juegos/index.html");
+  const sitemap = await exportedHtml("sitemap.xml");
+  for (const [slug, target] of [["lucha-canaria", "encuentro.html"], ["bola-canaria", ""]]) {
+    const route = `/juegos/${slug}/`;
+    assert.ok(home.includes(`href="${route}"`));
+    assert.ok(hub.includes(`href="${route}"`));
+    assert.ok(sitemap.includes(`${route}</loc>`));
+    const page = await exportedHtml(`juegos/${slug}/index.html`);
+    assert.ok(page.includes(`href="/betas/${slug}/${target}"`));
+    assert.match(page, /Jugar a la beta/);
+    assert.match(page, /sin homologación/);
+    assert.match(page, /name="robots" content="index, follow"/);
+    assert.ok(page.includes(`href="https://envitecanario.es/juegos/${slug}/"`) || page.includes(`href="https://envitecanario.es/juegos/${slug}"`));
+    const beta = await exportedHtml(`betas/${slug}/${target || "index.html"}`);
+    assert.match(beta, /content="noindex, nofollow"/);
+  }
+});
