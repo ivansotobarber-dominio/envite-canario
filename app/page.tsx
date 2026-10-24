@@ -8,7 +8,7 @@ import { IslandPortal } from "./island-portal";
 import { JuegosCanariosBand } from "./juegos-canarios-band";
 import { MilloCounterDemo } from "./millo-counter-demo";
 import { playableBetas } from "./juegos/betas";
-import betaStyles from "./juegos/beta-access.module.css";
+import styles from "./home-cultural.module.css";
 
 export const metadata: Metadata = {
   title: "Envite Canario: aprender, jugar y cultura de mesa",
@@ -106,7 +106,7 @@ const statusItems = [
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.site}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -114,55 +114,52 @@ export default function Home() {
       <SiteHeader />
 
       <main id="contenido-principal" tabIndex={-1}>
-        <section className={betaStyles.discovery} aria-label="Más juegos disponibles">
-          <div className={betaStyles.discoveryInner}>
-            <p>También puedes jugar · Betas experimentales</p>
+        <section className={styles.discovery} aria-label="Más juegos disponibles">
+          <div className={styles.discoveryInner}>
+            <p>La tradición sigue en juego <span>Betas experimentales</span></p>
             <nav aria-label="Lucha y Bola Canaria">
               {playableBetas.map((beta) => <Link key={beta.slug} href={`/juegos/${beta.slug}/`}>{beta.name} <span aria-hidden="true">&nbsp;→</span></Link>)}
             </nav>
           </div>
         </section>
         <section
-          className="hero"
+          className={styles.hero}
           aria-labelledby="hero-title"
           style={{
             backgroundImage: `url("${assetPath("/images/envite-hero.webp")}")`,
           }}
         >
-          <video
-            className="hero-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster={assetPath("/images/envite-mesa-atlantica-reference-v02.png")}
-            aria-hidden="true"
-          >
-            <source src={assetPath("/videos/envite-mesa-atlantica-loop-v01.mp4")} type="video/mp4" />
-          </video>
-          <div className="hero-shade" aria-hidden="true" />
-          <div className="hero-inner">
-            <p className="status-kicker">La mesa canaria, también en digital</p>
-            <h1 id="hero-title">Envite Canario</h1>
-            <p className="hero-claim">Jugar. Aprender. Conservar la mesa.</p>
-            <p className="hero-copy">
-              Una aplicación para jugar, una tienda nacida alrededor de la mesa
-              y un portal para seguir torneos, normas, historia y comunidad.
+          <Image className={styles.heroImage} src={assetPath("/images/envite-futurismo-cultural-v02.webp")} alt="" fill priority unoptimized sizes="100vw" />
+          <div className={styles.heroInner}>
+            <p className={styles.kicker}>Cultura de mesa · Canarias</p>
+            <h1 id="hero-title">Envite <span>Canario</span></h1>
+            <p className={styles.claim}>La próxima mano es nuestra.</p>
+            <p className={styles.heroCopy}>
+              Cartas y señas. Memoria compartida.
             </p>
-            <div className="hero-actions">
-              <Link className="button button-primary" href="/app">
-                Jugar en la WebApp
+            <div className={styles.heroActions}>
+              <Link className={styles.play} href="/app">
+                Jugar Envite <span aria-hidden="true">↗</span>
               </Link>
-              <Link className="button button-quiet" href="/como-jugar">
-                Aprender a jugar
+              <Link className={styles.learn} href="/como-jugar">
+                Aprender a jugar <span aria-hidden="true">→</span>
               </Link>
             </div>
+            <p className={styles.heroStatus}>Beta pública · Proyecto independiente</p>
           </div>
-          <a className="hero-next" href="#portal" aria-label="Ver todo el portal">
-            Explorar
-            <span aria-hidden="true">↓</span>
-          </a>
+          <div className={styles.heroFoot}><span>Escena conceptual · Cultura canaria en digital</span><a href="#jugar-canarias">Más juegos <span aria-hidden="true">↓</span></a></div>
+        </section>
+
+        <section className={styles.games} id="jugar-canarias" aria-labelledby="games-title">
+          <div className={styles.gamesHeading}><p>01 / Territorio de juego</p><h2 id="games-title">De la mesa al terrero.</h2><span>Dos betas experimentales, abiertas para probar.</span></div>
+          <div className={styles.gameGrid}>
+            {playableBetas.map((beta) => <Link key={beta.slug} className={styles.game} href={`/juegos/${beta.slug}/`}>
+              <Image src={assetPath(`/images/${beta.slug}-beta.png`)} alt={`Captura real de la beta de ${beta.name}`} width={844} height={390} unoptimized />
+              <div><h3>{beta.name}</h3><span aria-hidden="true">↗</span></div>
+              <p>{beta.slug === "lucha-canaria" ? "El terrero, las decisiones y el encuentro." : "El boliche, la puntería y la siguiente tirada."}</p>
+              <small>Explorar la beta experimental</small>
+            </Link>)}
+          </div>
         </section>
 
         <section className="portal-nav-band" id="portal" aria-labelledby="portal-title">
@@ -425,7 +422,7 @@ export default function Home() {
       </main>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }
 
