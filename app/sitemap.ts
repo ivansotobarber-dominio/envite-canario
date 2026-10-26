@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date("2026-09-02T00:00:00+01:00");
   const coreRoutes = [
     { route: "", priority: 1, changeFrequency: "weekly" as const },
+    { route: "/explorar", priority: 0.95, changeFrequency: "weekly" as const },
     { route: "/app", priority: 0.95, changeFrequency: "weekly" as const },
     { route: "/como-jugar", priority: 0.95, changeFrequency: "monthly" as const },
     { route: "/normas-y-variantes", priority: 0.9, changeFrequency: "monthly" as const },

@@ -32,6 +32,7 @@ async function htmlFor(path) {
 
 const publicRoutes = [
   "/",
+  "/explorar",
   "/app",
   "/tienda",
   "/torneos",
@@ -72,16 +73,16 @@ test("renders the complete Envite Canario portal without visible ellipses", asyn
     assert.doesNotMatch(html, /\.\.\.|…/, `${route} contains ellipses`);
   }
 
-  const home = await htmlFor("/");
-  assert.match(home, /<h1[^>]*>Envite Canario<\/h1>/i);
-  assert.match(home, /Jugar en la WebApp/i);
-  assert.match(home, /Entrar en la tienda/i);
+  const home = await htmlFor("/explorar");
+  assert.match(home, /<h1[^>]*>Envite <span>Canario<\/span><\/h1>/i);
+  assert.match(home, /Jugar Envite/i);
+  assert.match(home, /Ver la tienda/i);
   assert.match(home, /Del guachinche al puerto/i);
   assert.match(home, /Envite 2 contra 2 en Tinajo/i);
 });
 
 test("exposes a compact internal directory and independent project identity", async () => {
-  const home = await htmlFor("/");
+  const home = await htmlFor("/explorar");
 
   for (const route of navigationRoutes) {
     assert.match(home, new RegExp(`href="${route}"`), `missing navigation link ${route}`);
@@ -95,7 +96,7 @@ test("exposes a compact internal directory and independent project identity", as
 });
 
 test("keeps native apps out of structured availability until publication", async () => {
-  const home = await htmlFor("/");
+  const home = await htmlFor("/explorar");
   const match = home.match(
     /<script[^>]+type="application\/ld\+json"[^>]*>(.*?)<\/script>/is,
   );

@@ -16,6 +16,7 @@ test("exports the complete portal required by GitHub Pages", async () => {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const required = [
     ["index.html", /Envite Canario/i],
+    ["explorar/index.html", /La próxima mano es nuestra/i],
     ["app/index.html", /Abrir WebApp/i],
     ["tienda/index.html", /Baraja Envite Canario/i],
     ["torneos/index.html", /Tinajo/i],
@@ -43,11 +44,11 @@ test("exports the complete portal required by GitHub Pages", async () => {
     assert.doesNotMatch(html, /\.\.\.|…/, `${path} contains ellipses`);
   }
 
-  const home = await exportedHtml("index.html");
+  const home = await exportedHtml("explorar/index.html");
   assert.match(home, new RegExp(`${escapedPattern(basePath)}/_next/`));
   assert.match(
     home,
-    new RegExp(`${escapedPattern(basePath)}/images/envite-shop-collection-v01\\.webp`),
+    new RegExp(`${escapedPattern(basePath)}/images/envite-shop-collection-commercial-v05\\.webp`),
   );
   assert.match(home, /Instagram/i);
   assert.match(home, /Facebook/i);
@@ -152,7 +153,7 @@ test("every Windows nested RSC export has a byte-identical flat alias", async ()
 });
 
 test("discovers Lucha and Bola through indexable pages without changing beta indexation", async () => {
-  const home = await exportedHtml("index.html");
+  const home = await exportedHtml("explorar/index.html");
   const hub = await exportedHtml("juegos/index.html");
   const sitemap = await exportedHtml("sitemap.xml");
   for (const [slug, target] of [["lucha-canaria", "encuentro.html"], ["bola-canaria", ""]]) {
@@ -169,4 +170,19 @@ test("discovers Lucha and Bola through indexable pages without changing beta ind
     const beta = await exportedHtml(`betas/${slug}/${target || "index.html"}`);
     assert.match(beta, /content="noindex, nofollow"/);
   }
+});
+
+test("exports the cinematic portal with four real first-frame links and preserved explorer", async () => {
+  const html = await exportedHtml("index.html");
+  assert.match(html, /ENVITECANARIO\.ES/);
+  for (const route of ["/webapp/", "/betas/lucha-canaria/encuentro.html", "/betas/bola-canaria/", "/explorar/"]) {
+    assert.ok(html.includes(`href="${route}"`), route);
+  }
+  assert.match(html, /<canvas[^>]+aria-hidden="true"/);
+  assert.match(html, /<picture\b[^>]*>/);
+  assert.match(html, /portal-atlantico-v2\.webp/);
+  assert.match(html, /portal-caldera\.webp/);
+  assert.doesNotMatch(html, /<header\b|class="site-header"/);
+  assert.match(await exportedHtml("explorar/index.html"), /rel="canonical" href="https:\/\/envitecanario.es\/explorar\/"/);
+  assert.match(await exportedHtml("sitemap.xml"), /\/explorar\/<\/loc>/);
 });
