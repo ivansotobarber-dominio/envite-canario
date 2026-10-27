@@ -180,8 +180,8 @@ test("exports the cinematic portal with four real first-frame links and preserve
   }
   assert.match(html, /<canvas[^>]+aria-hidden="true"/);
   assert.match(html, /<picture\b[^>]*>/);
-  assert.match(html, /portal-atlantico-v2\.webp/);
-  assert.match(html, /portal-caldera\.webp/);
+  assert.match(html, /portal-atlantico-teide-v1\.webp/);
+  assert.match(html, /portal-caldera-teide-v1\.webp/);
   assert.doesNotMatch(html, /<header\b|class="site-header"/);
   assert.match(await exportedHtml("explorar/index.html"), /rel="canonical" href="https:\/\/envitecanario.es\/explorar\/"/);
   assert.match(await exportedHtml("sitemap.xml"), /\/explorar\/<\/loc>/);
