@@ -85,7 +85,7 @@ export function PortalCinematografico() {
     import("./portal-scene").then(({ createPortalScene }) => {
       if (cancelled || !canvas.current || !root.current) return;
       scene.current = createPortalScene(canvas.current, root.current, {
-        desktop: assetPath("/images/portal-atlantico-v2.webp"), mobile: assetPath("/images/portal-caldera.webp"),
+        desktop: assetPath("/images/portal-atlantico-teide-v1.webp"), mobile: assetPath("/images/portal-caldera-teide-v1.webp"),
         paused: pausedRef.current, ready: () => { if (!cancelled) setReady(true); }, failed: fail,
       });
     }).catch(fail);
@@ -108,13 +108,13 @@ export function PortalCinematografico() {
   return <main ref={root} className={styles.portal} id="contenido-principal" tabIndex={-1} data-renderer="fallback"
     style={{ "--mask-landscape": portalMask(false), "--mask-portrait": portalMask(true) } as CSSProperties}>
     <picture className={styles.backdrop}>
-      <source media="(max-aspect-ratio: 4/5)" srcSet={assetPath("/images/portal-caldera.webp")} />
+      <source media="(max-aspect-ratio: 4/5)" srcSet={assetPath("/images/portal-caldera-teide-v1.webp")} />
       {/* The picture remains visible without JavaScript, WebGL or a loaded scene. */}
-      <img src={assetPath("/images/portal-atlantico-v2.webp")} alt="" fetchPriority="high" />
+      <img src={assetPath("/images/portal-atlantico-teide-v1.webp")} alt="" fetchPriority="high" />
     </picture>
     <picture className={`${styles.backdrop} ${styles.backdropColor}`}>
-      <source media="(max-aspect-ratio: 4/5)" srcSet={assetPath("/images/portal-caldera.webp")} />
-      <img src={assetPath("/images/portal-atlantico-v2.webp")} alt="" />
+      <source media="(max-aspect-ratio: 4/5)" srcSet={assetPath("/images/portal-caldera-teide-v1.webp")} />
+      <img src={assetPath("/images/portal-atlantico-teide-v1.webp")} alt="" />
     </picture>
     <canvas ref={canvas} className={styles.canvas} aria-hidden="true" />
     <div className={styles.identity}>

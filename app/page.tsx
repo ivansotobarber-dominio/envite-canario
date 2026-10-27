@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "ENVITECANARIO.ES | Juegos de Canarias" },
   description: "Entra a Envite Canario, Lucha Canaria y Bola Canaria, o explora nuestro portal cultural independiente.",
   alternates: { canonical: "/" },
-  openGraph: { url: "/", title: "ENVITECANARIO.ES", images: ["/images/portal-atlantico-v2.webp"] },
+  openGraph: { url: "/", title: "ENVITECANARIO.ES", images: ["/images/portal-atlantico-teide-v1.webp"] },
 };
 export const viewport: Viewport = { themeColor: "#070a0b", colorScheme: "dark" };
 
