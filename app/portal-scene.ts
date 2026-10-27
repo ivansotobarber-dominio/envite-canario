@@ -1,7 +1,8 @@
 import * as THREE from "three";
+import { portalColorShader, portalTrailLimit, type PortalTrailPoint } from "./portal-color";
 
 type Options = { desktop: string; mobile: string; paused: boolean; ready: () => void; failed: () => void };
-export type PortalScene = { setPaused: (paused: boolean) => void; setActive: (index: number) => void; dispose: () => void };
+export type PortalScene = { setPaused: (paused: boolean) => void; setActive: (index: number) => void; setTrail: (points: readonly PortalTrailPoint[]) => void; dispose: () => void };
 type Terrace = [number, number, number, number, number];
 
 export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, options: Options): PortalScene {
@@ -12,6 +13,14 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
   const camera = new THREE.OrthographicCamera(-9, 9, 5, -5, 0.1, 60);
   camera.position.z = 24;
   const media = matchMedia("(max-aspect-ratio: 4/5)");
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+  const colorUniforms = {
+    portalTrail: { value: Array.from({ length: portalTrailLimit }, () => new THREE.Vector3()) },
+    portalTrailCount: { value: 0 },
+    portalViewport: { value: new THREE.Vector2(1, 1) },
+    portalDpr: { value: renderer.getPixelRatio() },
+    portalRadius: { value: 100 },
+  };
   const pointer = new THREE.Vector2();
   const cameraOffset = new THREE.Vector2();
   const projected = new THREE.Vector3();
@@ -48,6 +57,21 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     texture = map;
     texture.colorSpace = THREE.SRGBColorSpace;
     worldWidth = (portrait ? 941 / 1672 : 1672 / 941) * 10;
+    const colorShader = portalColorShader(portrait);
+    function colorize<T extends THREE.Material>(material: T): T {
+      material.onBeforeCompile = (shader) => {
+        Object.assign(shader.uniforms, colorUniforms);
+        shader.vertexShader = `varying vec2 vPortalUv;\n${shader.vertexShader}`.replace(/void main\s*\(\s*\)\s*\{/, `void main() {
+          vec3 portalWorld=(modelMatrix*vec4(position,1.0)).xyz;
+          vPortalUv=vec2(portalWorld.x/${worldWidth.toFixed(8)}+.5,.5-portalWorld.y/10.0);`);
+        shader.fragmentShader = `${colorShader.declarations}\n${shader.fragmentShader}`;
+        // Apply after output color conversion to every surface, including additive water/lines.
+        const end = shader.fragmentShader.lastIndexOf("}");
+        shader.fragmentShader = shader.fragmentShader.slice(0, end) + colorShader.output + shader.fragmentShader.slice(end);
+      };
+      material.customProgramCacheKey = () => `portal-monochrome-${portrait}`;
+      return material;
+    }
     const terraces: Terrace[] = portrait
       ? [[.23, .405, .215, .055, 1.35], [.81, .515, .22, .055, 1.65], [.40, .748, .19, .13, 2.1]]
       : [[.175, .59, .095, .049, 1.3], [.53, .62, .12, .067, 1.6], [.86, .59, .105, .075, 1.7]];
@@ -74,7 +98,7 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     const uv = terrain.attributes.uv;
     for (let i = 0; i < positions.count; i++) positions.setZ(i, depth(uv.getX(i), 1 - uv.getY(i)));
     terrain.computeVertexNormals();
-    const terrainMesh = new THREE.Mesh(terrain, new THREE.MeshBasicMaterial({ map, side: THREE.DoubleSide }));
+    const terrainMesh = new THREE.Mesh(terrain, colorize(new THREE.MeshBasicMaterial({ map, side: THREE.DoubleSide })));
     terrainMesh.name = "registered-basalt-volcano-relief";
     group.add(terrainMesh);
 
@@ -99,10 +123,10 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
       geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
       geometry.setIndex(indices);
       geometry.computeVertexNormals();
-      const terrace = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map, side: THREE.DoubleSide }));
+      const terrace = new THREE.Mesh(geometry, colorize(new THREE.MeshBasicMaterial({ map, side: THREE.DoubleSide })));
       terrace.name = `terrace-${index}`;
       group.add(terrace);
-      const material = new THREE.LineBasicMaterial({ color: "#74fff0", transparent: true, opacity: .36 });
+      const material = colorize(new THREE.LineBasicMaterial({ color: "#74fff0", transparent: true, opacity: .36 }));
       rims.push(material);
       const contour = new THREE.Line(new THREE.BufferGeometry().setFromPoints(rim), material);
       contour.visible = index !== 2;
@@ -115,16 +139,16 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     for (const contour of contours) {
       const points = contour.map(([u,v]) => point(u,v,depth(u,v)+.06));
       const curve = new THREE.CatmullRomCurve3(points);
-      group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(80)), new THREE.LineBasicMaterial({ color: "#53ded4", transparent: true, opacity: .30 })));
+      group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(80)), colorize(new THREE.LineBasicMaterial({ color: "#53ded4", transparent: true, opacity: .30 }))));
     }
 
     const waterGeometry = new THREE.PlaneGeometry(worldWidth * (portrait ? .55 : .48), portrait ? 1.05 : .85, 44, 18);
     const waterPosition = point(portrait ? .48 : .74, portrait ? .215 : .285, -.65);
-    water = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    water = colorize(new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
       uniforms: { time: { value: time } },
       vertexShader: "uniform float time; varying vec2 vUv; void main(){vUv=uv; vec3 p=position; p.z+=sin(p.x*9.0+time)*0.025; gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.0);}",
       fragmentShader: "uniform float time; varying vec2 vUv; void main(){float edge=smoothstep(0.0,0.18,vUv.x)*smoothstep(0.0,0.18,1.0-vUv.x)*smoothstep(0.0,0.2,vUv.y)*smoothstep(0.0,0.2,1.0-vUv.y); float wave=pow(max(0.0,sin(vUv.y*160.0+sin(vUv.x*34.0+time*.4)*2.0-time*.8)),14.0); gl_FragColor=vec4(.25,.8,.78,edge*wave*.16);}",
-    });
+    }));
     const ocean = new THREE.Mesh(waterGeometry, water);
     ocean.name = "ocean-wave-surface";
     ocean.position.copy(waterPosition);
@@ -177,6 +201,8 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     camera.top = viewHeight / 2; camera.bottom = -viewHeight / 2;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, false);
+    colorUniforms.portalViewport.value.set(width, height);
+    colorUniforms.portalRadius.value = Math.max(70, Math.min(120, Math.min(width, height) * .14));
     render();
   }
   function tick(now: number) {
@@ -197,12 +223,13 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     if (!frame && !paused && !document.hidden && !disposed && !lost && loaded) frame = requestAnimationFrame(tick);
   }
   function stop() { cancelAnimationFrame(frame); frame = 0; last = 0; }
-  function visibility() { if (document.hidden) stop(); else schedule(); }
+  function visibility() { leave(); if (document.hidden) stop(); else { render(); schedule(); } }
   function move(event: PointerEvent) {
-    if (event.pointerType === "touch" || paused) return;
-    pointer.set(event.clientX / width * 2 - 1, 1 - event.clientY / height * 2);
+    if (event.pointerType === "touch" || !finePointer.matches || paused) return;
+    const rect = root.getBoundingClientRect();
+    pointer.set((event.clientX - rect.left) / width * 2 - 1, 1 - (event.clientY - rect.top) / height * 2);
   }
-  function leave() { pointer.set(0,0); }
+  function leave() { pointer.set(0,0); colorUniforms.portalTrailCount.value = 0; if (paused) render(); }
   function contextLost(event: Event) { event.preventDefault(); lost = true; stop(); root.dataset.renderer = "fallback"; options.failed(); }
   const observer = new ResizeObserver(resize);
   observer.observe(root);
@@ -214,6 +241,11 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
   loadScene();
 
   return {
+    setTrail(points) {
+      colorUniforms.portalTrailCount.value = points.length;
+      points.forEach(({ x, y, alpha }, i) => colorUniforms.portalTrail.value[i].set(x, y, alpha));
+      if (paused) render();
+    },
     setPaused(value) {
       paused = value;
       root.dataset.motion = value ? "paused" : "running";

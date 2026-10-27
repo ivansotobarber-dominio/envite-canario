@@ -1,8 +1,10 @@
-.portal { position: relative; isolation: isolate; width: 100%; height: 100svh; min-height: 360px; overflow: hidden; background: #070a0b; color: #f4f6f3; font-family: "DM Sans", Arial, sans-serif; }
+.portal { position: relative; isolation: isolate; width: 100%; height: 100svh; min-height: 360px; overflow: hidden; background: #090909; color: #f4f4f4; font-family: "DM Sans", Arial, sans-serif; }
 .portal *, .portal *::before, .portal *::after { letter-spacing: 0; }
 .backdrop, .canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.backdrop img { width: 100%; height: 100%; object-fit: cover; }
-.canvas { opacity: 0; transition: opacity 450ms ease; }
+.backdrop img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
+.backdropColor img { filter: none; mask-image: var(--mask-landscape), var(--reveal-trail, linear-gradient(transparent,transparent)); mask-size: cover; mask-position: center; mask-repeat: no-repeat; }
+.portal[data-renderer="three"] .backdropColor { visibility: hidden; }
+.canvas { opacity: 0; }
 .portal[data-renderer="three"] .canvas { opacity: 1; }
 .identity { position: absolute; top: max(32px, env(safe-area-inset-top)); left: 16px; right: 16px; text-align: center; text-shadow: 0 2px 10px #000, 0 0 24px #000; pointer-events: none; }
 .identity p { max-width: min(56ch, calc(100% - 64px)); margin: 0 auto 10px; font-size: 13px; line-height: 1.45; font-weight: 600; color: #d3e4e3; text-wrap: balance; }
@@ -25,6 +27,7 @@
 .playIcon { width: 0; height: 0; margin-left: 3px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid currentColor; }
 @media (max-width: 1100px) { .identity h1 { font-size: 40px; } .destination { width: 190px; } .destinationName { font-size: 20px; } }
 @media (max-aspect-ratio: 4/5) {
+  .backdropColor img { mask-image: var(--mask-portrait), var(--reveal-trail, linear-gradient(transparent,transparent)); }
   .identity { top: max(48px, calc(env(safe-area-inset-top) + 24px)); }
   .identity h1 { font-size: 30px; }
   .identity p { font-size: 12px; }
