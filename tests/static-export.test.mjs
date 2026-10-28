@@ -175,6 +175,10 @@ test("discovers Lucha and Bola through indexable pages without changing beta ind
 test("exports the cinematic portal with four real first-frame links and preserved explorer", async () => {
   const html = await exportedHtml("index.html");
   assert.match(html, /ENVITECANARIO\.ES/);
+  assert.match(html, /<h1><img[^>]+src="\/images\/juegos-canarios-logo\.png"[^>]+alt="Juegos Canarios"/);
+  assert.match(html, /EXPLORA LA WEB/);
+  assert.doesNotMatch(html, /EXPLORAR LA WEB/);
+  assert.match(html, /La cultura que no se practica se pierde, la que se adapta permanece/);
   for (const route of ["/webapp/", "/betas/lucha-canaria/encuentro.html", "/betas/bola-canaria/", "/explorar/"]) {
     assert.ok(html.includes(`href="${route}"`), route);
   }

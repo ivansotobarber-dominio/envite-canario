@@ -102,6 +102,23 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
     terrainMesh.name = "registered-basalt-volcano-relief";
     group.add(terrainMesh);
 
+    // Extend only the sky's top texel row when the viewport is taller than the artwork.
+    const skyGeometry = new THREE.PlaneGeometry(worldWidth, 40);
+    const skyUv = skyGeometry.attributes.uv;
+    for (let i = 0; i < skyUv.count; i++) skyUv.setY(i, 1);
+    const skyMaterial = colorize(new THREE.MeshBasicMaterial({ map }));
+    const compileSky = skyMaterial.onBeforeCompile;
+    skyMaterial.onBeforeCompile = (shader, renderer) => {
+      compileSky(shader, renderer);
+      const end = shader.fragmentShader.lastIndexOf("}");
+      shader.fragmentShader = shader.fragmentShader.slice(0, end) +
+        "gl_FragColor.rgb=mix(gl_FragColor.rgb,vec3(0.12549),smoothstep(0.0,0.08,-vPortalUv.y));" + shader.fragmentShader.slice(end);
+    };
+    skyMaterial.customProgramCacheKey = () => `portal-sky-${portrait}`;
+    const sky = new THREE.Mesh(skyGeometry, skyMaterial);
+    sky.position.set(0, 25, -1.8);
+    group.add(sky);
+
     // Separate elevated terrace tops and basalt side walls, UV-projected from the reference view.
     terraces.forEach(([x, y, rx, ry, z], index) => {
       const vertices: number[] = [], uvs: number[] = [], indices: number[] = [];
@@ -196,9 +213,9 @@ export function createPortalScene(canvas: HTMLCanvasElement, root: HTMLElement, 
   function resize() {
     width = root.clientWidth; height = root.clientHeight;
     const aspect = width / height;
-    const viewHeight = Math.min(10, worldWidth / aspect), viewWidth = viewHeight * aspect;
+    const viewWidth = worldWidth, viewHeight = viewWidth / aspect;
     camera.left = -viewWidth / 2; camera.right = viewWidth / 2;
-    camera.top = viewHeight / 2; camera.bottom = -viewHeight / 2;
+    camera.top = -5 + viewHeight; camera.bottom = -5;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height, false);
     colorUniforms.portalViewport.value.set(width, height);

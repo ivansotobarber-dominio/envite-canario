@@ -119,7 +119,10 @@ export function PortalCinematografico() {
     <canvas ref={canvas} className={styles.canvas} aria-hidden="true" />
     <div className={styles.identity}>
       <p>La cultura que no se practica se pierde, la que se adapta permanece</p>
-      <h1>ENVITECANARIO.ES</h1>
+      <h1>
+        {/* eslint-disable-next-line @next/next/no-img-element -- Preserve the approved asset bytes in the static export. */}
+        <img className={styles.logo} src={assetPath("/images/juegos-canarios-logo.png")} width={1254} height={1254} alt="Juegos Canarios" />
+      </h1>
     </div>
     <nav className={styles.destinations} aria-label="Elige tu juego">
       {destinations.map((destination, index) => <a key={destination.href} href={assetPath(destination.href)}
@@ -131,7 +134,7 @@ export function PortalCinematografico() {
         <span className={styles.beta}>Beta</span>
       </a>)}
     </nav>
-    <a className={styles.explore} href={assetPath("/explorar/")}>EXPLORAR LA WEB <span aria-hidden="true">↗</span></a>
+    <a className={styles.explore} href={assetPath("/explorar/")}>EXPLORA LA WEB <span aria-hidden="true">↗</span></a>
     <p className={styles.caption}>Proyecto independiente <span aria-hidden="true">·</span> Escena conceptual</p>
     {ready && <button type="button" className={styles.motion} onClick={toggleMotion}
       aria-label={paused ? "Reanudar animación" : "Pausar animación"}

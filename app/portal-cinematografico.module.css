@@ -1,50 +1,55 @@
-.portal { position: relative; isolation: isolate; width: 100%; height: 100svh; min-height: 360px; overflow: hidden; background: #090909; color: #f4f4f4; font-family: "DM Sans", Arial, sans-serif; }
+.portal { position: relative; isolation: isolate; container-type: size; --scene-height: calc(100cqw * 941 / 1672); width: 100%; height: 100svh; min-height: 360px; overflow: hidden; background: #202020; color: #f4f4f4; font-family: "DM Sans", Arial, sans-serif; }
 .portal *, .portal *::before, .portal *::after { letter-spacing: 0; }
 .backdrop, .canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.backdrop img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
-.backdropColor img { filter: none; mask-image: var(--mask-landscape), var(--reveal-trail, linear-gradient(transparent,transparent)); mask-size: cover; mask-position: center; mask-repeat: no-repeat; }
+.backdrop img { position: absolute; bottom: 0; width: 100%; height: var(--scene-height); object-fit: fill; filter: grayscale(1); }
+.backdropColor { mask-image: var(--mask-landscape), var(--reveal-trail, linear-gradient(transparent,transparent)); mask-size: 100% var(--scene-height), 100% 100%; mask-position: center bottom, center; mask-repeat: no-repeat; }
+.backdropColor img { filter: none; }
 .portal[data-renderer="three"] .backdropColor { visibility: hidden; }
 .canvas { opacity: 0; }
 .portal[data-renderer="three"] .canvas { opacity: 1; }
 .identity { position: absolute; top: max(32px, env(safe-area-inset-top)); left: 16px; right: 16px; text-align: center; text-shadow: 0 2px 10px #000, 0 0 24px #000; pointer-events: none; }
 .identity p { max-width: min(56ch, calc(100% - 64px)); margin: 0 auto 10px; font-size: 13px; line-height: 1.45; font-weight: 600; color: #d3e4e3; text-wrap: balance; }
 .identity h1 { font-family: inherit; font-size: 52px; line-height: 1.15; font-weight: 600; margin: 0; }
+.logo { display: block; width: 176px; height: 176px; margin: auto; object-fit: contain; filter: grayscale(1) invert(1); mix-blend-mode: screen; }
 .destinations { position: absolute; inset: 0; pointer-events: none; }
 .destination { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 72px; width: 220px; padding: 8px 4px; color: #fff; text-align: center; pointer-events: auto; text-shadow: 0 2px 3px #000, 0 0 7px #000, 0 0 18px #000; transition: color 150ms ease; }
-.envite { left: var(--portal-0-x, 19%); top: var(--portal-0-y, 72%); }
-.lucha { left: var(--portal-1-x, 53%); top: var(--portal-1-y, 78%); }
-.bola { left: var(--portal-2-x, 85%); top: var(--portal-2-y, 73%); }
+.envite { left: var(--portal-0-x, 17.5%); top: var(--portal-0-y, calc(100% - var(--scene-height) * .27)); }
+.lucha { left: var(--portal-1-x, 53%); top: var(--portal-1-y, calc(100% - var(--scene-height) * .22)); }
+.bola { left: var(--portal-2-x, 86%); top: var(--portal-2-y, calc(100% - var(--scene-height) * .26)); }
 .destinationNote { font-size: 11px; font-weight: 500; margin-bottom: 3px; }
 .destinationName { font-size: 23px; line-height: 1.35; font-weight: 600; white-space: nowrap; border-bottom: 1px solid #affff1b3; padding-bottom: 3px; }
 .beta { font-size: 10px; margin-top: 5px; color: #fff; }
 .destination:hover, .destination:focus-visible { color: #aafff2; }
 .portal a:focus-visible, .motion:focus-visible { outline: 2px solid #affff1; outline-offset: 4px; box-shadow: 0 0 0 6px #070a0bcc; }
-.explore { position: absolute; bottom: max(48px, calc(env(safe-area-inset-bottom) + 32px)); left: 50%; transform: translateX(-50%); min-height: 48px; display: flex; align-items: center; gap: 28px; font-size: 12px; font-weight: 700; white-space: nowrap; border-bottom: 1px solid #f4f6f3; text-shadow: 0 1px 4px #000, 0 0 12px #000; }
-.explore:hover { color: #aafff2; border-color: #aafff2; }
+.explore { position: absolute; bottom: max(42px, calc(env(safe-area-inset-bottom) + 26px)); left: 50%; transform: translateX(-50%); min-height: 56px; padding: 0 24px; display: flex; align-items: center; gap: 24px; font-size: 18px; font-weight: 700; white-space: nowrap; background: #f4f4f4; color: #111; border-bottom: 3px solid #55c7af; }
+.explore:hover { background: #baf5e7; color: #111; }
 .caption { position: absolute; bottom: max(12px, env(safe-area-inset-bottom)); left: 20px; right: 20px; margin: 0; font-size: 10px; color: #d9e0df; text-align: center; text-shadow: 0 1px 4px #000, 0 0 10px #000; }
 .motion { position: absolute; right: max(18px, env(safe-area-inset-right)); top: max(20px, env(safe-area-inset-top)); display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #c6d8d966; border-radius: 50%; background: #070a0b80; color: #fff; cursor: pointer; }
 .pauseIcon { height: 13px; width: 10px; border-left: 3px solid currentColor; border-right: 3px solid currentColor; }
 .playIcon { width: 0; height: 0; margin-left: 3px; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 10px solid currentColor; }
 @media (max-width: 1100px) { .identity h1 { font-size: 40px; } .destination { width: 190px; } .destinationName { font-size: 20px; } }
 @media (max-aspect-ratio: 4/5) {
-  .backdropColor img { mask-image: var(--mask-portrait), var(--reveal-trail, linear-gradient(transparent,transparent)); }
-  .identity { top: max(48px, calc(env(safe-area-inset-top) + 24px)); }
+  .portal { --scene-height: calc(100cqw * 1672 / 941); }
+  .backdropColor { mask-image: var(--mask-portrait), var(--reveal-trail, linear-gradient(transparent,transparent)); }
+  .identity { top: max(60px, calc(env(safe-area-inset-top) + 36px)); }
   .identity h1 { font-size: 30px; }
+  .logo { width: 136px; height: 136px; }
   .identity p { font-size: 12px; }
   .motion { top: 8px; right: 8px; width: 44px; height: 44px; }
   .destination { width: 172px; min-height: 72px; }
   .destinationName { font-size: 18px; }
-  .envite { left: var(--portal-0-x, 25%); top: var(--portal-0-y, 48%); }
-  .lucha { left: var(--portal-1-x, 75%); top: var(--portal-1-y, 60%); }
-  .bola { left: var(--portal-2-x, 38%); top: var(--portal-2-y, 81%); }
+  .envite { left: var(--portal-0-x, max(96px, 24%)); top: var(--portal-0-y, calc(100% - var(--scene-height) * .52)); }
+  .lucha { left: var(--portal-1-x, min(calc(100% - 96px), 78%)); top: var(--portal-1-y, calc(100% - var(--scene-height) * .40)); }
+  .bola { left: var(--portal-2-x, 38%); top: var(--portal-2-y, min(calc(100% - 150px), calc(100% - var(--scene-height) * .18))); }
   .explore { bottom: max(36px, calc(env(safe-area-inset-bottom) + 22px)); }
   .caption { bottom: max(8px, env(safe-area-inset-bottom)); font-size: 9px; }
 }
 @media (max-width: 360px) { .identity h1 { font-size: 26px; } .destination { width: 154px; } .destinationName { font-size: 16px; } }
 @media (max-height: 500px) and (min-aspect-ratio: 4/5) {
   .identity { top: 16px; } .identity h1 { font-size: 28px; } .identity p { font-size: 11px; margin-bottom: 4px; }
+  .logo { width: 96px; height: 96px; }
   .destination { min-height: 56px; width: 166px; padding: 4px; } .destinationName { font-size: 17px; } .destinationNote { font-size: 10px; } .beta { font-size: 9px; margin-top: 2px; }
-  .explore { bottom: 25px; min-height: 44px; font-size: 10px; } .caption { bottom: 6px; font-size: 8px; }
+  .explore { bottom: 24px; min-height: 44px; font-size: 16px; padding: 0 20px; } .caption { bottom: 6px; font-size: 8px; }
   .motion { top: 10px; right: 12px; width: 44px; height: 44px; }
 }
 @media (prefers-reduced-motion: reduce) { .portal *, .portal *::before, .portal *::after { animation: none !important; transition: none !important; } }
